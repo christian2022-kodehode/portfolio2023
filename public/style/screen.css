@@ -17,12 +17,9 @@
 @font-face {
 	font-family: Roboto Flex;
 	font-weight: 300 900;
-	font-stretch: 50% 200%;
-	unicode-range: U+0020-0007A, U+00C5-00C6, U+00D8, U+00E5-00E6, U+00F8;
-	src: local(Roboto Flex),
-	     local(Roboto),
-	     local(Heebo),
-	     url(RobotoFlex.ttf) format(truetype);
+	font-stretch: 25% 100%;
+	/* unicode-range: U+0020-0007A, U+00C5-00C6, U+00D8, U+00E5-00E6, U+00F8; */
+	src: local(Roboto Flex), url(RobotoFlex.ttf) format(truetype);
 }
 
 *,
@@ -87,6 +84,60 @@ html {
 
 
 
+
+
+
+/* Fluid Type Scales, by James Gilyead - https://utopia.fyi/blog/css-modular-scales */
+
+:root {
+  --fluid-min-width: 320;
+  --fluid-max-width: 1500;
+  --fluid-min-size: 17;
+  --fluid-max-size: 20;
+  --fluid-min-ratio: 1.2;
+  --fluid-max-ratio: 1.33;
+}
+
+:root {
+  --fluid-screen: 100vw;
+  --fluid-bp: calc((var(--fluid-screen) - ((var(--fluid-min-width) / 16) * 1rem)) / ((var(--fluid-max-width) / 16) - (var(--fluid-min-width) / 16)));
+}
+
+@media screen and (min-width: 1500px) {
+  :root {
+    --fluid-screen: calc(var(--fluid-max-width) * 1px);
+  }
+}
+
+:root {
+  --fluid-min-scale-0: var(--fluid-min-ratio);
+  --fluid-min-scale-1: var(--fluid-min-scale-0) * var(--fluid-min-ratio);
+  --fluid-min-scale-2: var(--fluid-min-scale-1) * var(--fluid-min-ratio);
+
+  --fluid-max-scale-0: var(--fluid-max-ratio);
+  --fluid-max-scale-1: var(--fluid-max-scale-0) * var(--fluid-max-ratio);
+  --fluid-max-scale-2: var(--fluid-max-scale-1) * var(--fluid-max-ratio);
+
+  --fluid-min-size-0: (var(--fluid-min-size)) / 16;
+  --fluid-min-size-1: (var(--fluid-min-size) * var(--fluid-min-scale-0)) / 16;
+  --fluid-min-size-2: (var(--fluid-min-size) * var(--fluid-min-scale-1)) / 16;
+
+  --fluid-max-size-0: (var(--fluid-max-size)) / 16;
+  --fluid-max-size-1: (var(--fluid-max-size) * var(--fluid-max-scale-0)) / 16;
+  --fluid-max-size-2: (var(--fluid-max-size) * var(--fluid-max-scale-1)) / 16;
+
+  --fluid-0: calc(((var(--fluid-min-size-0) * 1rem) + (var(--fluid-max-size-0) - var(--fluid-min-size-0)) * var(--fluid-bp)));
+  --fluid-1: calc(((var(--fluid-min-size-1) * 1rem) + (var(--fluid-max-size-1) - var(--fluid-min-size-1)) * var(--fluid-bp)));
+  --fluid-2: calc(((var(--fluid-min-size-2) * 1rem) + (var(--fluid-max-size-2) - var(--fluid-min-size-2)) * var(--fluid-bp)));
+}
+
+
+
+
+
+
+
+
 /*
  *   2. Element styles
  *
@@ -105,8 +156,16 @@ body {
 	display: grid;
 	font-optical-sizing: auto;
 	font-stretch: 100%;
-	font-size: 112.5%;
+	font-size: var(--fluid-0);
 }
+
+h1,
+h2,
+h3,
+h4,
+p {
+	margin-block-start: 0;
+	margin-block-end: 1rem;}
 
 h1,
 h2,
@@ -116,43 +175,75 @@ h3 {
 	text-transform: uppercase;
 	font-optical-sizing: none;
 	font-stretch: 50%;
-	margin-block-start: 1em;
-	margin-block-end: 1rem;
 	line-height: 0.9;
 }
 
 h1 {
-	font-size: 150%;
-}
-
-h2 {
-	font-size: 300%;
+	font-size: var(--fluid-1);
 }
 
 h3 {
-	font-size: 150%;
+	font-size: var(--fluid-2);
+	border-left: 1em solid var(--primary);
+	padding-left: 0.5em;
 }
-	h3 em {
+
+h4 {
+	font-size: var(--fluid-1);
+}
+	h4 em {
 		display: block;
 		font-style: normal;
 		font-weight: 300;
 		letter-spacing: normal;
 	}
 
+p {
+	/* Aiming for a line length of ~70 characters */
+	max-width: 33em;
+}
+
 a {
+	color: var(--primary);
+	font-weight: 700;
+	text-decoration-color: var(--primary-saturated);
+	text-decoration-thickness: 1px;
+	text-transform: uppercase;
 	transition: var(--transition-color);
 }
+	a:link {
+		color: var(--primary);
+	}
+
+	a:visited {
+		color: var(--primary-background-darker);
+	}
+
+	a:hover,
+	a:focus,
+	a:focus-visible {
+		color: var(--primary-saturated);
+	}
+
+	a:active {
+		color: var(--primary-saturated-bright);
+	}
 
 header,
 section,
 footer {
+	overflow: hidden;
 	padding-left: 10vw;
 	padding-right: 10vw;
 }
 
-header h1 {
-	font-weight: 300;
+header {
+
+	padding-bottom: 0;
 }
+	header h1 {
+		font-weight: 300;
+	}
 
 nav {
 	background-color: var(--primary-background-bright);
@@ -192,29 +283,31 @@ nav a {
 		border-top-style: solid;
 	}
 
-section {
-	overflow: hidden;
-	padding-top: 2em;
-	padding-bottom: 4em;
-}
 
 header {
 	background-color: white;
-	padding-top: 3em;
+	padding-top: 4em;
 }
 	header h1 {
 		font-weight: 300;
 		text-transform: uppercase;
 	}
 
+/* section {
+	padding-bottom: 4em;
+	padding-top: 2em;
+} */
+
 footer {
 	background-color: var(--primary-background-dim);
+	padding-bottom: 50vh;
+	padding-top: 2em;
 }
-
-p {
-	/* Aiming for a line length of ~70 characters */
-	max-width: 33em;
-}
+	footer h2 {
+		font-weight: 300;
+		letter-spacing: normal;
+		font-stretch: 100%;
+	}
 
 input[type=text],
 textarea {
@@ -299,7 +392,8 @@ textarea {
 	background-color: var(--secondary-background-darker);
 }
 
-.cta {
+.cta,
+.cta:any-link {
 	background-color: var(--primary);
 	border-radius: 0.25em;
 	border-right-color: white;
@@ -309,7 +403,7 @@ textarea {
 	display: inline-block;
 	font-weight: 700;
 	line-height: 1;
-	margin: 1em 0;
+	/* margin: 1em 0; */
 	max-width: 15em;
 	padding: 0.5em 1em;
 	position: relative;
@@ -333,8 +427,17 @@ textarea {
 	}
 
 	.cta:hover,
-	.cta:focus {
+	.cta:focus,
+	.cta:focus-visible {
 		background-color: var(--primary-saturated);
+	}
+
+	.cta:active {
+		background-color: var(--primary-saturated-bright);
+	}
+
+	.cta ~ .cta {
+		margin-top: 1em;
 	}
 
 	.transition svg {
@@ -351,10 +454,11 @@ textarea {
 
 .hero {
 	background-color: var(--secondary-background-bright);
+	padding-top: 4em;
 }
 	.hero h2 {
-		font-size: 10vw;
-		font-stretch: 66%;
+		font-size: calc(200% + 5vw);
+		font-stretch: 25%;
 		font-variation-settings: "opsz" 48;
 		font-weight: 900;
 		letter-spacing: -0.03em;
@@ -377,8 +481,10 @@ textarea {
 
 .method {
 	background-color: var(--secondary-background-dim);
+	padding-top: 2em;
+	padding-bottom: 2em;
 }
-	.method h2 {
+	.method h3 {
 		color: var(--foreground-contrast);
 	}
 
@@ -391,9 +497,6 @@ textarea {
 	background-color: var(--primary-background-darker);
 	color: var(--foreground-contrast);
 }
-	.projects h2 {
-		color: var(--primary);
-	}
 
 
 /*
@@ -424,4 +527,23 @@ textarea {
 	nav li + li a {
 		border-top-style: none;
 	}
+
+	.split,
+	.project-list {
+		display: flex;
+		gap: 5vw;
+		align-items: flex-start;
+		align-content: stretch;
+		margin-bottom: 3em;
+	}
+		.split > *,
+		.project-list > * {
+			flex-basis: 50%;
+		}
+
+		.project-info {
+			text-align: right;
+		} 
+
+
 }
