@@ -17,12 +17,9 @@
 @font-face {
 	font-family: Roboto Flex;
 	font-weight: 300 900;
-	font-stretch: 50% 200%;
-	unicode-range: U+0020-0007A, U+00C5-00C6, U+00D8, U+00E5-00E6, U+00F8;
-	src: local(Roboto Flex),
-	     local(Roboto),
-	     local(Heebo),
-	     url(RobotoFlex.ttf) format(truetype);
+	font-stretch: 25% 100%;
+	/* unicode-range: U+0020-0007A, U+00C5-00C6, U+00D8, U+00E5-00E6, U+00F8; */
+	src: local(Roboto Flex), url(RobotoFlex.ttf) format(truetype);
 }
 
 *,
@@ -87,6 +84,60 @@ html {
 
 
 
+
+
+
+/* Fluid Type Scales, by James Gilyead - https://utopia.fyi/blog/css-modular-scales */
+
+:root {
+  --fluid-min-width: 320;
+  --fluid-max-width: 1500;
+  --fluid-min-size: 17;
+  --fluid-max-size: 20;
+  --fluid-min-ratio: 1.2;
+  --fluid-max-ratio: 1.33;
+}
+
+:root {
+  --fluid-screen: 100vw;
+  --fluid-bp: calc((var(--fluid-screen) - ((var(--fluid-min-width) / 16) * 1rem)) / ((var(--fluid-max-width) / 16) - (var(--fluid-min-width) / 16)));
+}
+
+@media screen and (min-width: 1500px) {
+  :root {
+    --fluid-screen: calc(var(--fluid-max-width) * 1px);
+  }
+}
+
+:root {
+  --fluid-min-scale-0: var(--fluid-min-ratio);
+  --fluid-min-scale-1: var(--fluid-min-scale-0) * var(--fluid-min-ratio);
+  --fluid-min-scale-2: var(--fluid-min-scale-1) * var(--fluid-min-ratio);
+
+  --fluid-max-scale-0: var(--fluid-max-ratio);
+  --fluid-max-scale-1: var(--fluid-max-scale-0) * var(--fluid-max-ratio);
+  --fluid-max-scale-2: var(--fluid-max-scale-1) * var(--fluid-max-ratio);
+
+  --fluid-min-size-0: (var(--fluid-min-size)) / 16;
+  --fluid-min-size-1: (var(--fluid-min-size) * var(--fluid-min-scale-0)) / 16;
+  --fluid-min-size-2: (var(--fluid-min-size) * var(--fluid-min-scale-1)) / 16;
+
+  --fluid-max-size-0: (var(--fluid-max-size)) / 16;
+  --fluid-max-size-1: (var(--fluid-max-size) * var(--fluid-max-scale-0)) / 16;
+  --fluid-max-size-2: (var(--fluid-max-size) * var(--fluid-max-scale-1)) / 16;
+
+  --fluid-0: calc(((var(--fluid-min-size-0) * 1rem) + (var(--fluid-max-size-0) - var(--fluid-min-size-0)) * var(--fluid-bp)));
+  --fluid-1: calc(((var(--fluid-min-size-1) * 1rem) + (var(--fluid-max-size-1) - var(--fluid-min-size-1)) * var(--fluid-bp)));
+  --fluid-2: calc(((var(--fluid-min-size-2) * 1rem) + (var(--fluid-max-size-2) - var(--fluid-min-size-2)) * var(--fluid-bp)));
+}
+
+
+
+
+
+
+
+
 /*
  *   2. Element styles
  *
@@ -105,8 +156,16 @@ body {
 	display: grid;
 	font-optical-sizing: auto;
 	font-stretch: 100%;
-	font-size: 112.5%;
+	font-size: var(--fluid-0);
 }
+
+h1,
+h2,
+h3,
+h4,
+p {
+	margin-block-start: 0;
+	margin-block-end: 1rem;}
 
 h1,
 h2,
@@ -116,106 +175,139 @@ h3 {
 	text-transform: uppercase;
 	font-optical-sizing: none;
 	font-stretch: 50%;
-	margin-block-start: 1em;
-	margin-block-end: 1rem;
 	line-height: 0.9;
 }
 
 h1 {
-	font-size: 150%;
-}
-
-h2 {
-	font-size: 300%;
+	font-size: var(--fluid-1);
 }
 
 h3 {
-	font-size: 150%;
+	font-size: var(--fluid-2);
+	border-left: 1em solid var(--primary);
+	padding-left: 0.5em;
 }
-	h3 em {
+
+h4 {
+	font-size: var(--fluid-1);
+}
+	h4 em {
 		display: block;
 		font-style: normal;
 		font-weight: 300;
 		letter-spacing: normal;
 	}
 
-a {
-	transition: var(--transition-color);
+p {
+	/* Aiming for a line length of ~70 characters */
+	max-width: 33em;
 }
 
+a {
+	color: var(--primary);
+	font-weight: 700;
+	text-decoration-color: var(--primary-saturated);
+	text-decoration-thickness: 1px;
+	text-transform: uppercase;
+	transition: var(--transition-color);
+}
+	a:link {
+		color: var(--primary);
+	}
+
+	a:visited {
+		color: var(--primary-background-darker);
+	}
+
+	a:hover,
+	a:focus,
+	a:focus-visible {
+		color: var(--primary-saturated);
+	}
+
+	a:active {
+		color: var(--primary-saturated-bright);
+	}
+
 header,
-nav,
 section,
 footer {
+	overflow: hidden;
 	padding-left: 10vw;
 	padding-right: 10vw;
 }
 
-header h1 {
-	font-weight: 300;
+header {
+
+	padding-bottom: 0;
 }
+	header h1 {
+		font-weight: 300;
+	}
 
 nav {
 	background-color: var(--primary-background-bright);
+	border-bottom-color: var(--primary-transparent);
 	border-bottom-style: solid;
 	border-bottom-width: 0.2em;
-	border-bottom-color: var(--primary-transparent);
 }
 
 nav ul {
-	list-style-type: none;
-	padding: 0;
+	align-items: stretch;
 	display: flex;
 	flex-direction: column;
-	align-items: stretch;
+	list-style-type: none;
 	margin: 0;
+	padding: 0;
+	width: 100%;
 }
 
 nav a {
+	border-color: var(--primary-transparent);
+	border-width: 1px;
 	color: var(--primary);
-	padding: 1em 2em;
+	display: block;
+	font-weight: 700;
+	padding: 1em 10vw;
 	text-decoration-color: var(--primary-saturated);
 	text-decoration-thickness: 1px;
 	text-transform: uppercase;
-	font-weight: 700;
-	display: block;
-	border-left-style: solid;
-	border-width: 1px;
-	border-color: var(--primary-transparent);
 }
-	nav li:last-child a {
-		border-right-style: solid;
-	}
 
 	nav a:hover,
 	nav a:focus {
 		background-color: white;
 	}
 
-section {
-	overflow: hidden;
-	padding-top: 2em;
-	padding-bottom: 4em;
-}
+	nav li + li a {
+		border-top-style: solid;
+	}
+
 
 header {
 	background-color: white;
-	padding-top: 3em;
+	padding-top: 4em;
 }
 	header h1 {
 		font-weight: 300;
 		text-transform: uppercase;
 	}
 
+/* section {
+	padding-bottom: 4em;
+	padding-top: 2em;
+} */
+
 footer {
 	background-color: var(--primary-background-dim);
-	/* color: var(--foreground-contrast); */
+	padding-bottom: 50vh;
+	padding-top: 2em;
 }
-
-p {
-	/* Aiming for a line length of ~70 characters */
-	max-width: 33em;
-}
+	footer h2 {
+		font-weight: 300;
+		letter-spacing: normal;
+		font-stretch: 100%;
+	}
 
 input[type=text],
 textarea {
@@ -250,7 +342,7 @@ textarea {
 	opacity: 0.5;
 }
 
-button {
+/* button {
 	background-color: var(--highlight);
 	border-radius: 0.5em;
 	border-style: none;
@@ -267,7 +359,7 @@ button {
 	button:hover,
 	button:focus {
 		background-color: var(--highlight-focus);
-	}
+	} */
 
 
 
@@ -300,48 +392,58 @@ button {
 	background-color: var(--secondary-background-darker);
 }
 
-.cta {
+.cta,
+.cta:any-link {
 	background-color: var(--primary);
+	border-radius: 0.25em;
+	border-right-color: white;
+	border-right-style: solid;
+	border-right-width: 2em;
 	color: var(--foreground-contrast);
 	display: inline-block;
-	width: 100%;
+	font-weight: 700;
+	line-height: 1;
+	/* margin: 1em 0; */
 	max-width: 15em;
 	padding: 0.5em 1em;
-	border-right-style: solid;
-	border-right-color: white;
-	border-right-width: 2em;
 	position: relative;
-	border-radius: 0.25em;
-	line-height: 1;
-	font-weight: 700;
-	text-transform: uppercase;
 	text-align: right;
 	text-decoration: none;
-	margin: 1em 0;
+	text-transform: uppercase;
+	width: 100%;
 }
 	.cta:after {
+		background-color: var(--primary-transparent);
+		bottom: 0;
+		color: var(--primary);
 		content: "\0279C";
+		display: block;
+		line-height: 2em;
 		position: absolute;
 		right: -2em;
-		line-height: 2em;
-		width: 2em;
 		text-align: center;
 		top: 0;
-		bottom: 0;
-		background-color: var(--primary-transparent);
-		display: block;
-		color: var(--primary);
+		width: 2em;
 	}
 
 	.cta:hover,
-	.cta:focus {
+	.cta:focus,
+	.cta:focus-visible {
 		background-color: var(--primary-saturated);
 	}
 
+	.cta:active {
+		background-color: var(--primary-saturated-bright);
+	}
+
+	.cta ~ .cta {
+		margin-top: 1em;
+	}
+
 	.transition svg {
-		width: 100%;
-		height: auto;
 		display: block;
+		height: auto;
+		width: 100%;
 	}
 
 
@@ -352,15 +454,16 @@ button {
 
 .hero {
 	background-color: var(--secondary-background-bright);
+	padding-top: 4em;
 }
 	.hero h2 {
-		font-size: 10vw;
-		line-height: 0.8;
-		font-weight: 900;
-		text-transform: uppercase;
-		letter-spacing: -0.03em;
+		font-size: calc(200% + 5vw);
+		font-stretch: 25%;
 		font-variation-settings: "opsz" 48;
-		font-stretch: 66%;
+		font-weight: 900;
+		letter-spacing: -0.03em;
+		line-height: 0.8;
+		text-transform: uppercase;
 	}
 
 	.hero + .transition {
@@ -378,8 +481,10 @@ button {
 
 .method {
 	background-color: var(--secondary-background-dim);
+	padding-top: 2em;
+	padding-bottom: 2em;
 }
-	.method h2 {
+	.method h3 {
 		color: var(--foreground-contrast);
 	}
 
@@ -392,9 +497,6 @@ button {
 	background-color: var(--primary-background-darker);
 	color: var(--foreground-contrast);
 }
-	.projects h2 {
-		color: var(--primary);
-	}
 
 
 /*
@@ -404,7 +506,44 @@ button {
 
 /* 40 * 16px = 640px (or greater) */
 @media (min-width: 40em) {
+
+	nav {
+		padding-left: 10vw;
+		padding-right: 10vw;
+	}
 	nav ul {
 		flex-direction: row;
 	}
+
+	nav a {
+		border-left-style: solid;
+		padding-left: 2em;
+		padding-right: 2em;
+	}
+		nav li:last-child a {
+			border-right-style: solid;
+		}
+		
+	nav li + li a {
+		border-top-style: none;
+	}
+
+	.split,
+	.project-list {
+		display: flex;
+		gap: 5vw;
+		align-items: flex-start;
+		align-content: stretch;
+		margin-bottom: 3em;
+	}
+		.split > *,
+		.project-list > * {
+			flex-basis: 50%;
+		}
+
+		.project-info {
+			text-align: right;
+		} 
+
+
 }
