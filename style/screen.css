@@ -79,8 +79,16 @@
 	}
 } */
 
-/* Fluid Type Scales, by James Gilyead - https://utopia.fyi/blog/css-modular-scales */
+::selection {
+    background-color: var(--primary);
+    color: var(--primary-contrast);
+}
 
+:focus-visible {
+	outline-color: var(--primary);
+}
+
+/* Fluid Type Scales, by James Gilyead - https://utopia.fyi/blog/css-modular-scales */
 :root {
 	--fluid-min-width: 320;
 	--fluid-max-width: 1500;
@@ -167,10 +175,13 @@ h6 {
 		font-size: var(--fluid-2);
 		margin-block-start: 0;
 		padding-left: 0.5em;
+		position: sticky;
+		inset-block-start: 0;
 	}
 
 	h4 {
 		font-size: var(--fluid-1);
+		font-weight: 700;
 	}
 		h4 em {
 			display: block;
@@ -191,7 +202,7 @@ h6 {
 p {
 	/* Aiming for a line length of ~70 characters */
 	margin: 0;
-	max-width: 33em;
+	max-inline-size: 33em;
 }
 	h1 + p,
 	h2 + p,
@@ -231,8 +242,6 @@ header,
 section,
 footer {
 	overflow: hidden;
-	padding-left: 10vw;
-	padding-right: 10vw;
 }
 
 nav {
@@ -280,6 +289,13 @@ header {
 		text-transform: uppercase;
 	}
 
+header,
+footer,
+section article {
+	padding-left: 10vw;
+	padding-right: 10vw;
+}
+
 section:nth-child(1) {
 	background-color: var(--secondary-muted-brightest);
 	padding-top: 6em;
@@ -294,37 +310,37 @@ section:nth-child(1) {
 		text-transform: uppercase;
 	}
 
-	section:nth-child(1) + .transition {
-		background-color: var(--secondary-muted-brightest);
+	section:nth-child(1) .transition {
+		/* background-color: var(--secondary-muted-brightest); */
 		color: var(--secondary-muted-brighter)
 	}
 
-section:nth-child(3) {
+section:nth-child(2) {
 	background-color: var(--secondary-muted-brighter);
 }
-	section:nth-child(3) + .transition {
-		background-color: var(--secondary-muted-brighter);
+	section:nth-child(2) .transition {
+		/* background-color: var(--secondary-muted-brighter); */
 		color: var(--secondary-muted)
 	}
 
-section:nth-child(5) {
+section:nth-child(3) {
 	background-color: var(--secondary-muted);
-	padding-bottom: 2em;
 	padding-top: 2em;
 }
-	section:nth-child(5) h3 {
+	section:nth-child(3) h3 {
 		color: var(--foreground-contrast);
 	}
 
-	section:nth-child(5) + .transition {
-		background-color: var(--secondary-muted);
+	section:nth-child(3) .transition {
+		/* background-color: var(--secondary-muted); */
 		color: var(--primary-muted-darkest)
 	}
 
-section:nth-child(7) {
+section:nth-child(4) {
 	background-color: var(--primary-muted-darkest);
 	color: var(--foreground-contrast);
 	padding-bottom: 6em;
+	/* padding-top: 2em; */
 }
 
 footer {
@@ -397,6 +413,7 @@ textarea {
  *
  * * * */
 
+
 .cta,
 .cta:any-link {
 	background-color: var(--primary);
@@ -444,7 +461,7 @@ textarea {
 		margin-top: 1em;
 	}
 
-	.transition svg {
+	.transition {
 		display: block;
 		height: auto;
 		width: 100%;
