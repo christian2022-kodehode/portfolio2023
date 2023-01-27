@@ -228,6 +228,7 @@ hr {
 	border-width: 1px;
 	border-color: var(--foreground);
 	border-style: solid none none none;
+	margin: 2em 0;
 }
 
 article {
@@ -378,7 +379,13 @@ footer {
 	margin-right: auto;
 }
 
-
+.clear-list {
+	list-style: none;
+	padding: 0;
+}
+	.clear-list li + li {
+		margin-top: 1em;
+	}
 
 
 /*
@@ -403,7 +410,7 @@ footer {
 	display: block;
 	font-weight: 700;
 	line-height: 1;
-	max-width: 16em;
+	max-width: 10em;
 	padding: 0.5em 1em;
 	position: relative;
 	text-align: right;
@@ -502,8 +509,6 @@ footer {
 		.grid hr {
 			grid-column-end: right-col-end;
 			grid-column-start: left-col-start;
-			margin: 2em 0;
-
 		}
 
 		.grid h4,
@@ -522,10 +527,5 @@ footer {
 		.grid ul {
 			grid-column-end: right-col-end;
 			grid-column-start: right-col-start;
-			list-style: none;
-			padding: 0;
 		}
-			.grid li + li {
-				margin-top: 1em;
-			}
 }
