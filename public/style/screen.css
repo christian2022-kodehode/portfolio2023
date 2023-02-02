@@ -141,7 +141,14 @@ h6 {
 	line-height: 0.9;
 	margin: 0;
 	text-transform: uppercase;
-}
+} 
+	h1,
+	h2 {
+		font-weight: 300;
+		font-size: var(--step-3);
+		letter-spacing: normal;
+	}
+
 	h3 {
 		border-block-end: 0.25rem solid var(--primary);
 		display: inline-block;
@@ -204,13 +211,7 @@ header {
 	background-color: white;
 	padding-block-start: 4em;
 	padding-block-end: 1em;
-} 
-	header h1,
-	footer h2 {
-		font-weight: 300;
-		font-size: var(--step-2);
-		letter-spacing: normal;
-	}
+}
 
 footer {
 	background-color: var(--primary-muted-darker);
@@ -219,10 +220,10 @@ footer {
 }
 
 article {
+	box-sizing: content-box;
 	margin-inline-end: auto;
 	margin-inline-start: auto;
 	max-inline-size: 32em;
-	box-sizing: content-box;
 }
 
 section:nth-child(1) {
@@ -230,12 +231,13 @@ section:nth-child(1) {
 	padding-block-start: 6em;
 }
 	section:nth-child(1) h2 {
-		font-size: calc(200% + 5vw);
+		/* font-size: calc(150% + 10vw); */
+		font-size: var(--step-5);
 		font-variation-settings: "opsz" 48;
 		font-weight: 1000;
 		letter-spacing: -0.03em;
 		line-height: 0.8;
-		margin-block-end: 3rem;
+		margin-block-end: 2rem;
 		text-transform: uppercase;
 	}
 
@@ -259,11 +261,11 @@ section:nth-child(2) {
 	}
 
 section:nth-child(3) {
-	padding-block-start: 2em;
 	background-color: var(--secondary-muted);
 }
 	section:nth-child(3) article {
 		padding-block-end: 2em;
+		padding-block-start: 2em;
 	}
 
 	section:nth-child(3) h1,
@@ -401,18 +403,6 @@ section:nth-child(4) {
 		margin-block-start: 1em;
 	}
 
-.split {
-	display: flex;
-	gap: 2em;
-}
-	.split--shrink {
-		flex-shrink: 1;
-	}
-
-	.split-grow {
-		flex-grow: 1;
-	}
-
 
 
 /*
@@ -440,6 +430,7 @@ section:nth-child(4) {
 
 	.navigation-bar a {
 		border-color: var(--primary-muted-brighter);
+		border-block-end-style: solid;
 		border-width: 1px;
 		display: block;
 		padding: 1em 5vw;
@@ -452,27 +443,25 @@ section:nth-child(4) {
 		background-color: white;
 	}
 
-	.navigation-bar li + li a {
-		border-block-start-style: solid;
+	.navigation-bar li:last-child a {
+		border-block-end-style: none;
 	}
 
 .navigation-chapters ol {
 	list-style-type: none;
-	margin: 0;
 	padding: 0;
-	text-align: end;
-	text-transform: uppercase;
+	display: inline-block;
 }
-	.navigation-chapters a {
-		border-block-start-style: solid;
-		border-color: var(--primary-saturated);
-		border-width: 1px;
-		display: block;
-		padding-block-end: 0.5em;
-		padding-block-start: 0.5em;
-		text-decoration: none;
-	}
 
+.navigation-chapters a {
+	border-block-start-style: solid;
+	border-color: var(--primary-saturated);
+	border-width: 1px;
+	display: block;
+	padding-block-end: 0.5em;
+	padding-block-start: 0.5em;
+	text-decoration: none;
+}
 	.navigation-chapters a:any-link {
 		color: var(--primary);
 	}
@@ -480,6 +469,7 @@ section:nth-child(4) {
 	.navigation-chapters li:last-child a {
 		border-block-end-style: solid;
 	}
+
 
 
 /*
@@ -492,6 +482,26 @@ section:nth-child(4) {
 /* 40 * 16px = 640px (or greater) */
 @media (min-width: 40em) {
 
+	.split {
+		display: flex;
+		gap: 2em;
+	}
+		.split--shrink {
+			flex-shrink: 1;
+		}
+
+		.split-grow {
+			flex-grow: 1;
+		}
+
+	.navigation-chapters {
+		text-align: end;
+	}
+
+	.navigation-chapters ol {
+		margin: 0;
+	}
+
 	/* .navigation-barigation horisontal layout */
 	.navigation-bar {
 		padding-inline-start: 5vw;
@@ -503,8 +513,15 @@ section:nth-child(4) {
 			margin-inline-start: auto;
 			margin-inline-end: auto;
 		}
+		
+		.navigation-bar a {
+			border-inline-start-style: solid;
+			padding-inline-start: 0;
+			padding-inline-end: 2em;
+			border-style: none;
+		}
 
-		.navigation-bar li {
+		/* .navigation-bar li {
 			flex-grow: 1;
 		}
 
@@ -519,7 +536,7 @@ section:nth-child(4) {
 			
 		.navigation-bar li + li a {
 			border-block-start-style: none;
-		}
+		} */
 
 	/* 2 column grid */
 	.grid {
@@ -531,6 +548,7 @@ section:nth-child(4) {
 			[last-col-end];
 		padding: 0 5vw;
 	}
+		.grid-col-full,
 		.grid hr {
 			grid-column-end: -1;
 			grid-column-start: 1;
@@ -548,10 +566,16 @@ section:nth-child(4) {
 			grid-column-start: main-col-start;
 		}
 
+		.grid ol,
+		.grid-col-first {
+			grid-column-end: 2;
+			grid-column-start: 1;
+		}
+
 		.grid ul,
 		.grid-col-last {
-			grid-column-end: last-col-end;
-			grid-column-start: last-col-start;
+			grid-column-end: -1;
+			grid-column-start: -2;
 		}
 
 		.grid--basic {
@@ -576,9 +600,11 @@ section:nth-child(4) {
 		margin: 2em 0 0 0;
 		max-inline-size: 100%;
 	}
-		.grid > * {
-			margin-block-start: 1rem;
-			margin-block-end: 1rem;
+		.grid > p,
+		.grid > ul,
+		.grid > ol {
+			margin-block-start: 0;
+			/* margin-block-end: 1rem; */
 		}
 
 		.grid h4,
