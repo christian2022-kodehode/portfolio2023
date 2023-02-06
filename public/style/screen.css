@@ -390,6 +390,14 @@ section:nth-child(4) {
 		position: absolute;
 	}
 
+	.cta:visited {
+		background-color: var(--primary-darker);
+	}
+
+	.cta:visited svg {
+		color: var(--primary);
+	}
+
 	.cta:hover,
 	.cta:focus,
 	.cta:focus-visible {
@@ -398,14 +406,6 @@ section:nth-child(4) {
 
 	.cta:active {
 		background-color: var(--primary-saturated-brightest);
-	}
-
-	.cta:visited {
-		background-color: var(--primary-darker);
-	}
-
-	.cta:visited svg {
-		color: var(--primary);
 	}
 
 	.cta ~ .cta {
@@ -541,47 +541,50 @@ section:nth-child(4) {
 /* 40 * 16px = 640px (or greater) */
 @media (min-width: 40em) {
 
-	/* .split {
-		display: flex;
-		gap: 2em;
-	}
-		.split--shrink {
-			flex-shrink: 1;
-		}
-
-		.split-grow {
-			flex-grow: 1;
-		} */
-
-	/* .navigation-chapters {
-		text-align: end;
-	} */
-
-
 	/* .navigationigation horisontal layout */
 	.navigation {
-		/* position: sticky;
-		padding-inline-start: calc(5vw - 1em);
-		padding-inline-end: calc(5vw - 1em);
-		background-color: var(--primary-muted-brightest); */
-	/* border-block-end-color: var(--primary-muted-brighter);
-	border-block-end-style: solid;
-	border-block-end-width: 0.2em; */
+		background-color: var(--primary-muted-brightest);
+		background-image: linear-gradient(0deg, var(--primary-muted-brighter) 0.2em, var(--primary-muted-brightest) 0.2em);
+		padding-inline: calc(5vw - 1em);
+		position: sticky;
 	}
-		/* .navigation ul {
+		.navigation ul {
+			display: flex;
 			flex-direction: row;
+			inline-size: 100%;
+			margin-inline: auto;
 			max-inline-size: 34em;
-			margin-inline-start: auto;
-			margin-inline-end: auto;
+		}
+
+		.navigation li {
+			margin-inline-start: 0;
 		}
 		
 		.navigation a {
-			border-inline-start-style: solid;
-			padding-inline-start: 1em;
-			padding-inline-end: 1em;
+			background-color: transparent;
 			border-style: none;
-		} */
+			color: var(--primary);
+			margin: 0;
+			padding-inline: 1em;
+			border-block-end-color: transparent;
+			border-block-end-style: solid;
+			border-block-end-width: 0.2em;
+		}
+			.navigation a:hover,
+			.navigation a:focus,
+			.navigation a:focus-visible {
+				border-block-end-color: var(--primary-brightest);
+				color: var(--foreground-contrast);
+			}
 
+	.toggle-icon {
+		display: none;
+	}
+
+	.toggle-target li {
+		max-inline-size: 100%;
+		inline-size: auto;
+	}
 	/* .navigation-chapters ol {
 		margin: 0;
 		display: inline-block;
