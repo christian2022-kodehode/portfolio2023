@@ -18,34 +18,32 @@
 				<h1>Christian / Portfolio</h1>
 			</div>
 		</header>
-		<nav class="navigation-bar">
-			<ul>
-				<li><a href="#">Ferdigheter</a></li>
-				<li><a href="#">Prosjekter</a></li>
-				<li><a href="#">Erfaring</a></li>
+		<nav class="navigation">
+			<input id="toggle-trigger" name="toggle-trigger" class="toggle-trigger" type="checkbox" style="display: none;" />
+			<label for="toggle-trigger" class="toggle-icon">Kapitler</label>
+			<ul class="toggle-target">
+				<li>
+					<a href="#introduksjon">Introduksjon</a>
+				</li>
+				<li>
+					<a href="#prioriteter">Prioriteter</a>
+				</li>
+				<li>
+					<a href="#arbeidsprosess">Prosess</a>
+				</li>
+				<li>
+					<a href="#prosjekter">Prosjekter</a>
+				</li>
+				<li>
+					<a href="#kontaktinformasjon">Kontakt</a>
+				</li>
 			</ul>
 		</nav>
 		<main>
-			<section id="introduksjon">
+			<section id="introduksjon" class="introduction">
 				<article class="grid">
-					<h2 class="grid-col-full">Jeg løser<br /> problemer</h2>
-					<nav class="navigation-chapters grid-col-first">
-						<ol>
-							<li>
-								<a href="#prioriteter">Prioriteter</a>
-							</li>
-							<li>
-								<a href="#arbeidsprosess">Arbeidsprosess</a>
-							</li>
-							<li>
-								<a href="#prosjekter">Prosjekter</a>
-							</li>
-							<li>
-								<a href="#kontaktinformasjon">Kontaktinformasjon</a>
-							</li>
-						</ol>
-					</nav>
-					<p class="grid-col-last">I thought today we would make a happy little stream
+					<h2>Jeg løser<br /> problemer</h2>
+					<p>I thought today we would make a happy little stream
 					that's just running through the woods here. Without washing the brush,
 					I'm gonna go right into some Van Dyke Brown, some Burnt Umber, and a
 					little bit of Sap Green. I really believe that if you practice enough
@@ -68,7 +66,6 @@
 					a little sense.</p>
 				</article>
 				<article class="grid grid--basic">
-					<hr />
 					<h4>Fokus på innhold</h4>
 					<p>This is probably the greatest thing to happen in my life
 					- to be able to share this with you. Only think about one thing at a
@@ -77,7 +74,6 @@
 					this is going to be a cold painting. Let's put some highlights on these
 					little trees. The sun wouldn't forget them. Now it's beginning to make
 					a little sense.</p>
-					<hr />
 					<h4>Ytelse og pålitelighet</h4>
 					<p>This is probably the greatest thing to happen in my life
 					- to be able to share this with you. Only think about one thing at a
@@ -86,7 +82,6 @@
 					this is going to be a cold painting. Let's put some highlights on these
 					little trees. The sun wouldn't forget them. Now it's beginning to make
 					a little sense.</p>
-					<hr />
 					<h4>Tilgjengelighet</h4>
 					<p>This is probably the greatest thing to happen in my life
 					- to be able to share this with you. Only think about one thing at a
@@ -142,7 +137,6 @@
 					</p>
 				</article>
 				<article class="grid grid--projects">
-					<hr />
 					<h4><em>JavaScript</em> Sorterbare Tabeller</h4>
 					<p>Et enkelt script som skal kunne legges til en hvilken som helst side for å gjøre tabeller sorterbare. Det er lagt vekt på at minst mulig minne skal brukes, og sorteringen skal kunne aktiveres med og uten pekeenhet og/eller skjermleser.</p>
 					<ul class="list-style-none">
@@ -163,7 +157,6 @@
 							</a>
 						</li>
 					</ul>
-					<hr />
 					<h4><em>React.js</em> Nedtellings Forum</h4>
 					<p>Opprinnelig en kursoppgave for å bruke React til visning av en nedtelling med et meldingsforum. Prosjektet har blitt utvidet for å kunne bytte mellom flere nedtellinger, samt enkle brukerinnstillinger.</p>
 					<ul class="list-style-none">
@@ -192,7 +185,6 @@
 							</a>
 						</li>
 					</ul>
-					<hr />
 					<h4><em>Figma</em> Portfolio</h4>
 					<p>Prosjektfiler for planlegging av denne portfolio siden. Det er lagt på å bruke farge til å fokusere på seksjonsoverskrifter og interaktive elementer.</p>
 					<ul class="list-style-none">
@@ -246,7 +238,6 @@
 				worse than yellow snow is green snow.</p>
 			</aside> -->
 		</footer>
-		<!-- <h3>Fargepalett (midlertidig)</h3>
 		<style>
 			.palette {
 				text-align: center;
@@ -260,7 +251,8 @@
 				margin: 0.5em auto;
 			}
 		</style>
-		<div style="display: flex; flex-wrap: wrap; gap: 1em; padding: 2em; background-color: var(--secondary-muted)">
+		<div style="display: flex; flex-wrap: wrap; gap: 1em; padding: 2em; background-color: var(--primary-muted-darker); color: var(--foreground-contrast)">
+		<h3 style="width: 100%; color: var(--foreground-contrast);">Fargepalett (for testing)</h3>
 			<div class="palette">
 				<div style="background-color: var(--foreground-contrast)"></div>
 					foreground-contrast
@@ -337,7 +329,7 @@
 				<div style="background-color: var(--primary-muted-darkest)"></div>
 				secondary-muted-darkest
 			</div>
-		</div> -->
+		</div>
 		<noscript>You need to enable JavaScript to run this app.</noscript>
 		<div id="root"></div>
 		<svg style="display: none" xmlns="http://www.w3.org/2000/svg">
