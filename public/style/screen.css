@@ -34,32 +34,32 @@
 
 :root {
 	/* Primary colors */
-	--primary-contrast:				hsl(130deg 100% 90%); /* contrast / foreground */
-	--primary-brightest:			hsl(130deg 66% 40%); /* 2.52 / 5.90 */
-	--primary-brighter:				hsl(130deg 66% 35%); /* 3.28 / 4.79 */
+	--primary-brightest:			hsl(130deg 66% 90%); /*  */
+	--primary-brighter:				hsl(130deg 66% 85%); /*  */
 	--primary:						hsl(130deg 66% 30%); /* 4.26 / 3.61 */
 	--primary-darker:				hsl(130deg 66% 25%); /* 5.47 / 2.77 */
 	--primary-darkest:				hsl(130deg 66% 20%); /* 7.30 / 2.05 */
 
-	--primary-saturated-brighter:	hsl(130deg 100% 75%); /* 1.04 / 14.58 */
-	--primary-saturated:			hsl(130deg 80% 50%);  /* 1.43 / 10.69 */
-	--primary-saturated-darker:		hsl(130deg 100% 25%); /* 4.17 / 3.64 */
+	--primary-contrast:				hsl(130deg 99% 90%); /* contrast / foreground */
+	--primary-saturated-brighter:	hsl(130deg 90% 75%); /*  */
+	--primary-saturated:			hsl(130deg 80% 50%); /* 1.43 / 10.69 */
+	--primary-saturated-darker:		hsl(130deg 90% 25%); /*  */
 
-	--primary-muted-brightest:		hsl(130deg 50% 90%); /* 1.02 / 15.47 */
-	--primary-muted-brighter:		hsl(130deg 50% 85%); /* 1.06 / 14.26 */
-	--primary-muted:				hsl(130deg 10% 45%); /* 3.67 / 4.14 */
-	--primary-muted-darker:			hsl(130deg 10% 30%); /* 6.63 / 2.33 */
-	--primary-muted-darkest:		hsl(130deg 10% 15%); /* 12.28 / 1.25 */
+	--primary-muted-brightest:		hsl(130deg 16% 80%); /*  */
+	--primary-muted-brighter:		hsl(130deg 13% 65%); /*  */
+	--primary-muted:				hsl(130deg 10% 50%); /* 3.67 / 4.14 */
+	--primary-muted-darker:			hsl(130deg 13% 30%); /*  */
+	--primary-muted-darkest:		hsl(130deg 16% 15%); /*  */
 
 	/* Complimentary colors */
 	--foreground-contrast:			hsl(310deg 10% 92%);
 	--foreground:					hsl(310deg 10% 8%);
 
-	--secondary-muted-brightest:	hsl(310deg 10% 80%); /* 1.34 */
-	--secondary-muted-brighter:		hsl(310deg 10% 65%); /* 2.13 */
-	--secondary-muted:				hsl(310deg 10% 50%); /* 3.52 */
-	--secondary-muted-darker:		hsl(310deg 10% 35%); /* 6.05 */
-	--secondary-muted-darkest:		hsl(310deg 10% 20%); /* 10.77 */
+	--secondary-muted-brightest:	hsl(310deg 10% 67%); /*  */
+	--secondary-muted-brighter:		hsl(310deg 10% 59%); /*  */
+	--secondary-muted:				hsl(310deg 10% 51%); /*  */
+	--secondary-muted-darker:		hsl(310deg 10% 43%); /*  */
+	--secondary-muted-darkest:		hsl(310deg 10% 35%); /*  */
 
 	--transition-color:
 		color 300ms ease-in-out,
@@ -540,8 +540,8 @@ section:nth-child(4) {
 
 	/* .navigationigation horisontal layout */
 	.navigation {
-		background-color: var(--primary-muted-brightest);
-		background-image: linear-gradient(0deg, var(--primary-muted-brighter) 0.2em, var(--primary-muted-brightest) 0.2em);
+		background-color: var(--primary-brightest);
+		background-image: linear-gradient(0deg, var(--primary-brighter) 0.2em, var(--primary-brightest) 0.2em);
 		padding-inline: calc(5vw - 1em);
 		position: sticky;
 	}
