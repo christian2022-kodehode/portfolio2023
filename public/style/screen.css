@@ -45,11 +45,11 @@
 	--primary-saturated:			hsl(130deg 80% 50%);
 	--primary-saturated-darker:		hsl(130deg 100% 25%);
 
-	--primary-muted-brightest:		hsl(130deg 10% 90%);
-	--primary-muted-brighter:		hsl(130deg 10% 80%);
-	--primary-muted:				hsl(130deg 10% 70%);
-	--primary-muted-darker:			hsl(130deg 10% 30%);
-	--primary-muted-darkest:		hsl(130deg 10% 20%);
+	--primary-muted-brightest:		hsl(130deg 50% 90%);
+	--primary-muted-brighter:		hsl(130deg 50% 80%);
+	--primary-muted:				hsl(130deg 10% 40%);
+	--primary-muted-darker:			hsl(130deg 20% 30%);
+	--primary-muted-darkest:		hsl(130deg 20% 10%);
 
 	/* Complimentary colors */
 	--foreground-contrast:			hsl(310deg 10% 92%);
@@ -64,7 +64,8 @@
 	--transition-color:
 		color 300ms ease-in-out,
 		background-color 300ms ease-in-out,
-		border-color 300ms ease-in-out;
+		border-color 300ms ease-in-out,
+		opacity 300ms ease-in-out;
 
 	/* Fluid Type Scales, by James Gilyead & Trys Mudford - https://utopia.fyi/blog/css-modular-scales */
 	--step--2: clamp(0.69rem, calc(0.64rem + 0.35vw), 0.96rem);
@@ -267,7 +268,7 @@ section:nth-child(4) {
 
 /*
  *   3. Layout components
- *      (Styles with more general use
+ *      (Styles with more general use,
  *      applied in multiple instances)
  *
  * * * */
@@ -419,9 +420,9 @@ section:nth-child(4) {
 	}
 
 	.navigation a {
-		background-color: var(--primary-muted-darkest);
+		background-color: var(--primary-darkest);
 		border-block-end-style: solid;
-		border-color: var(--primary-muted-darker);
+		border-color: var(--primary-darker);
 		border-width: 1px;
 		color: var(--foreground-contrast);
 		display: block;
@@ -484,13 +485,31 @@ section:nth-child(4) {
 	font-size: var(--step--1);
 	inline-size: auto;
 	margin-inline-start: auto;
-	padding-block: 1em;
-	padding-inline: 2em;
+	padding-block: 0.5em;
+	padding-inline: 1em;
 	transition: var(--transition-color);
 }
+	.toggle-icon svg {
+		vertical-align: middle;
+		block-size: 1em;
+		inline-size: 1em;
+	}
+
+	.toggle-icon .icon-close {
+		opacity: 0;
+	}
+
 	.toggle-trigger:checked ~ .toggle-icon {
 		background-color: var(--foreground-contrast);
 		color: var(--primary);
+	}
+
+	.toggle-trigger:checked ~ .toggle-icon .icon-navigation {
+		opacity: 0;
+	}
+
+	.toggle-trigger:checked ~ .toggle-icon .icon-close {
+		opacity: 1;
 	}
 
 	.toggle-icon:hover,
