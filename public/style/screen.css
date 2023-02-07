@@ -55,11 +55,11 @@
 	--foreground-contrast:			hsl(310deg 10% 92%);
 	--foreground:					hsl(310deg 10% 8%);
 
-	--secondary-muted-brightest:	hsl(310deg 10% 67%); /*  */
-	--secondary-muted-brighter:		hsl(310deg 10% 59%); /*  */
-	--secondary-muted:				hsl(310deg 10% 51%); /*  */
+	--secondary-muted-brightest:	hsl(310deg 10% 81%); /*  */
+	--secondary-muted-brighter:		hsl(310deg 10% 67%); /*  */
+	--secondary-muted:				hsl(310deg 10% 55%); /*  */
 	--secondary-muted-darker:		hsl(310deg 10% 43%); /*  */
-	--secondary-muted-darkest:		hsl(310deg 10% 35%); /*  */
+	--secondary-muted-darkest:		hsl(310deg 10% 32%); /*  */
 
 	--transition-color:
 		color 300ms ease-in-out,
