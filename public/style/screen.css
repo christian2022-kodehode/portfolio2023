@@ -288,22 +288,26 @@ section:nth-child(4) {
 .contrast {
 	color: var(--foreground-contrast);
 }
+	.contrast a:any-link {
+		text-decoration-color: var(--primary-saturated-brightest);
+	}
+
 	.contrast a:link {
-		color: var(--primary-brightest);
+		color: var(--primary-saturated-brightest);
+	}
+
+	.contrast a:visited {
+		color: var(--primary-pale);
 	}
 
 	.contrast a:hover,
 	.contrast a:focus,
 	.contrast a:focus-visible {
-		color: var(--primary-saturated);
+		color: var(--primary-pale-brighter);
 	}
 
 	.contrast a:active {
-		color: var(--foreground-contrast);
-	}
-
-	.contrast a:visited {
-		color: var(--primary-saturated-brighter);
+		color: var(--primary-pale-brightest);
 	}
 
 .container {
@@ -327,7 +331,7 @@ section:nth-child(4) {
 
 .cta {
 	background-color: var(--primary);
-	border-inline-end-color: white;
+	border-inline-end-color: var(--foreground-contrast);
 	border-inline-end-style: solid;
 	border-inline-end-width: 2em;
 	border-radius: 0.25em;
@@ -362,21 +366,21 @@ section:nth-child(4) {
 	}
 
 	.cta:visited {
-		background-color: var(--primary-darker);
+		background-color: var(--primary-muted-darker);
 	}
 
-	.cta:visited svg {
+	/* .cta:visited svg {
 		color: var(--primary);
-	}
+	} */
 
 	.cta:hover,
 	.cta:focus,
 	.cta:focus-visible {
-		background-color: var(--primary-saturated);
+		background-color: var(--primary-saturated-brighter);
 	}
 
 	.cta:active {
-		background-color: var(--primary-saturated-brighter);
+		background-color: var(--primary-saturated-brightest);
 	}
 
 	.cta ~ .cta {
