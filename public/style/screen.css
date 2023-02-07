@@ -45,11 +45,11 @@
 	--primary-saturated:			hsl(130deg 80% 50%); /* 1.43 / 10.69 */
 	--primary-saturated-darker:		hsl(130deg 90% 25%); /*  */
 
-	--primary-muted-brightest:		hsl(130deg 16% 80%); /*  */
-	--primary-muted-brighter:		hsl(130deg 13% 65%); /*  */
-	--primary-muted:				hsl(130deg 10% 50%); /* 3.67 / 4.14 */
-	--primary-muted-darker:			hsl(130deg 13% 30%); /*  */
-	--primary-muted-darkest:		hsl(130deg 16% 15%); /*  */
+	--primary-muted-brightest:		hsl(130deg 10% 57%); /*  */
+	--primary-muted-brighter:		hsl(130deg 10% 45%); /*  */
+	--primary-muted:				hsl(130deg 10% 35%); /*  */
+	--primary-muted-darker:			hsl(130deg 10% 25%); /*  */
+	--primary-muted-darkest:		hsl(130deg 10% 14%); /*  */
 
 	/* Complimentary colors */
 	--foreground-contrast:			hsl(310deg 10% 92%);
