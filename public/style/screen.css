@@ -33,33 +33,41 @@
 }
 
 :root {
-	/* Primary colors */
-	--primary-brightest:			hsl(130deg 66% 90%); /*  */
-	--primary-brighter:				hsl(130deg 66% 85%); /*  */
-	--primary:						hsl(130deg 66% 30%); /* 4.26 / 3.61 */
-	--primary-darker:				hsl(130deg 66% 25%); /* 5.47 / 2.77 */
-	--primary-darkest:				hsl(130deg 66% 20%); /* 7.30 / 2.05 */
+	/* Primary colors										contrast ratio (inverted) */
+	--primary-saturated-brightest:	hsl(130deg 100% 38%); /*  */
+	--primary-saturated-brighter:	hsl(130deg 100% 30%); /*  */
+	--primary-saturated:			hsl(130deg 100% 24%); /*  */
+	--primary-saturated-darker:		hsl(130deg 100% 18%); /*  */
+	--primary-saturated-darkest:	hsl(130deg 100% 12%); /*  */
 
-	--primary-contrast:				hsl(130deg 99% 90%); /* contrast / foreground */
-	--primary-saturated-brighter:	hsl(130deg 90% 75%); /*  */
-	--primary-saturated:			hsl(130deg 80% 50%); /* 1.43 / 10.69 */
-	--primary-saturated-darker:		hsl(130deg 90% 25%); /*  */
+	--primary-brightest:			hsl(130deg 66% 45%); /*  */
+	--primary-brighter:				hsl(130deg 66% 36%); /*  */
+	--primary:						hsl(130deg 66% 28%); /*  */
+	--primary-darker:				hsl(130deg 66% 21%); /*  */
+	--primary-darkest:				hsl(130deg 66% 14%); /*  */
 
-	--primary-muted-brightest:		hsl(130deg 10% 57%); /*  */
-	--primary-muted-brighter:		hsl(130deg 10% 45%); /*  */
-	--primary-muted:				hsl(130deg 10% 35%); /*  */
-	--primary-muted-darker:			hsl(130deg 10% 25%); /*  */
-	--primary-muted-darkest:		hsl(130deg 10% 14%); /*  */
+	--primary-pale-brightest:		hsl(130deg 50% 87%); /*  */
+	--primary-pale-brighter:		hsl(130deg 50% 74%); /*  */
+	--primary-pale:					hsl(130deg 50% 61%); /*  */
+	--primary-pale-darker:			hsl(130deg 50% 50%); /*  */
+	--primary-pale-darkest:			hsl(130deg 50% 44%); /*  */
 
-	/* Complimentary colors */
-	--foreground-contrast:			hsl(310deg 10% 92%);
-	--foreground:					hsl(310deg 10% 8%);
+	--primary-muted-brightest:		hsl(130deg 10% 53%); /*  */
+	--primary-muted-brighter:		hsl(130deg 10% 41%); /*  */
+	--primary-muted:				hsl(130deg 10% 32%); /*  */
+	--primary-muted-darker:			hsl(130deg 10% 22%); /*  */
+	--primary-muted-darkest:		hsl(130deg 10% 10%); /*  */
 
-	--secondary-muted-brightest:	hsl(310deg 10% 81%); /*  */
-	--secondary-muted-brighter:		hsl(310deg 10% 67%); /*  */
-	--secondary-muted:				hsl(310deg 10% 55%); /*  */
-	--secondary-muted-darker:		hsl(310deg 10% 43%); /*  */
-	--secondary-muted-darkest:		hsl(310deg 10% 32%); /*  */
+	/* Complementary colors */
+	--foreground-contrast:			hsl(310deg 10% 96%);
+	--foreground:					hsl(310deg 10% 6%);
+
+	/* 0.5 contrast increments, starting from darkest */
+	--secondary-muted-brightest:	hsl(310deg 10% 88%); /*  */
+	--secondary-muted-brighter:		hsl(310deg 10% 73%); /*  */
+	--secondary-muted:				hsl(310deg 10% 60%); /*  */
+	--secondary-muted-darker:		hsl(310deg 10% 48%); /*  */
+	--secondary-muted-darkest:		hsl(310deg 10% 37%); /*  */
 
 	--transition-color:
 		color 300ms ease-in-out,
@@ -102,7 +110,7 @@
 
 ::selection {
     background-color: var(--primary);
-    color: var(--primary-contrast);
+    color: var(--foreground-contrast);
 }
 
 :focus-visible {
@@ -540,8 +548,8 @@ section:nth-child(4) {
 
 	/* .navigationigation horisontal layout */
 	.navigation {
-		background-color: var(--primary-brightest);
-		background-image: linear-gradient(0deg, var(--primary-brighter) 0.2em, var(--primary-brightest) 0.2em);
+		background-color: var(--primary-pale-brightest);
+		background-image: linear-gradient(0deg, var(--primary-pale-brighter) 0.2em, var(--primary-pale-brightest) 0.2em);
 		padding-inline: calc(5vw - 1em);
 		position: sticky;
 	}
