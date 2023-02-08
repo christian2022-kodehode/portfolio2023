@@ -420,7 +420,6 @@ section:nth-child(4) {
 	max-block-size: 100%;
 	overflow-y: auto;
 	position: fixed;
-	text-align: end;
 	z-index: 1;
 }
 	.navigation ul {
@@ -431,7 +430,6 @@ section:nth-child(4) {
 	}
 
 	.navigation li {
-		text-align: start;
 		margin-inline-start: auto;
 	}
 
@@ -442,9 +440,9 @@ section:nth-child(4) {
 		border-width: 1px;
 		color: var(--foreground-contrast);
 		display: block;
-		margin-inline-start: 1em;
+		margin-inline-start: 3em;
 		padding-block: 1em;
-		padding-inline-start: 2em;
+		padding-inline-start: 1em;
 		text-decoration: none;
 		transition-duration: 300ms;
 		transition-property: margin, color, background-color, border-color;
@@ -455,7 +453,7 @@ section:nth-child(4) {
 		.navigation a:focus-visible {
 			background-color: var(--primary);
 			border-color: var(--primary);
-			margin-inline-start: 0;
+			margin-inline-start: 2em;
 		}
 
 .toggle-target li {
@@ -500,14 +498,16 @@ section:nth-child(4) {
 	border-inline-start-style: solid;
 	border-width: 3em;
 	color: var(--foreground-contrast);
-	display: inline-block;
-	inline-size: auto;
+	display: block;
+	inline-size: 8em;
 	line-height: 1;
 	margin-inline-start: auto;
 	padding-block: 1em;
 	padding-inline: 1em;
 	position: relative;
-	transition: var(--transition-color);
+	transition-property: inline-size, background-color, border-color;
+	transition-timing-function: ease-in;
+	transition-duration: 300ms;
 }
 	.toggle-icon svg {
 		block-size: 3em;
@@ -523,6 +523,7 @@ section:nth-child(4) {
 	.toggle-trigger:checked ~ .toggle-icon {
 		background-color: var(--primary-muted);
 		border-color: var(--primary-muted-brighter);
+		inline-size: 100%;
 	}
 
 	.toggle-trigger:checked ~ .toggle-icon svg {
