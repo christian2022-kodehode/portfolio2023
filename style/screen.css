@@ -33,33 +33,41 @@
 }
 
 :root {
-	/* Primary colors */
-	--primary-contrast:				hsl(130deg 100% 90%);
-	--primary-brightest:			hsl(130deg 66% 50%);
-	--primary-brighter:				hsl(130deg 66% 40%);
-	--primary:						hsl(130deg 66% 30%);
-	--primary-darker:				hsl(130deg 66% 20%);
-	--primary-darkest:				hsl(130deg 66% 10%);
+	/* Primary colors										contrast ratio (inverted) */
+	--primary-saturated-brightest:	hsl(130deg 100% 38%); /* 07.77 (02.19) */
+	--primary-saturated-brighter:	hsl(130deg 100% 30%); /* 04.94 (03.44) */
+	--primary-saturated:			hsl(130deg 100% 24%); /* 03.49 (04.99) */
+	--primary-saturated-darker:		hsl(130deg 100% 18%); /* 02.27 (07.66) */
+	--primary-saturated-darkest:	hsl(130deg 100% 12%); /* 01.52 (11.77) */
 
-	--primary-saturated-brightest:	hsl(130deg 100% 75%);
-	--primary-saturated:			hsl(130deg 80% 50%);
-	--primary-saturated-darker:		hsl(130deg 100% 25%);
+	--primary-brightest:			hsl(130deg 66% 45%); /* 07.82 (02.23) */
+	--primary-brighter:				hsl(130deg 66% 36%); /* 05.14 (03.38) */
+	--primary:						hsl(130deg 66% 28%); /* 03.32 (05.31) */
+	--primary-darker:				hsl(130deg 66% 21%); /* 02.28 (07.75) */
+	--primary-darkest:				hsl(130deg 66% 14%); /* 01.54 (11.61) */
 
-	--primary-muted-brightest:		hsl(130deg 50% 90%);
-	--primary-muted-brighter:		hsl(130deg 50% 80%);
-	--primary-muted:				hsl(130deg 10% 40%);
-	--primary-muted-darker:			hsl(130deg 20% 30%);
-	--primary-muted-darkest:		hsl(130deg 20% 10%);
+	--primary-pale-brightest:		hsl(130deg 50% 87%); /* 15.21 (01.14) */
+	--primary-pale-brighter:		hsl(130deg 50% 74%); /* 12.15 (01.43) */
+	--primary-pale:					hsl(130deg 50% 61%); /* 09.63 (01.79) */
+	--primary-pale-darker:			hsl(130deg 50% 50%); /* 08.07 (02.16) */
+	--primary-pale-darkest:			hsl(130deg 50% 44%); /* 06.30 (02.76) */
 
-	/* Complimentary colors */
-	--foreground-contrast:			hsl(310deg 10% 92%);
-	--foreground:					hsl(310deg 10% 8%);
+	--primary-muted-brightest:		hsl(130deg 10% 53%); /* 05.74 (03.03) */
+	--primary-muted-brighter:		hsl(130deg 10% 41%); /* 03.72 (04.67) */
+	--primary-muted:				hsl(130deg 10% 32%); /* 02.55 (06.81) */
+	--primary-muted-darker:			hsl(130deg 10% 22%); /* 01.68 (10.35) */
+	--primary-muted-darkest:		hsl(130deg 10% 10%); /* 01.09 (15.94) */
 
-	--secondary-muted-brightest:	hsl(310deg 10% 80%);
-	--secondary-muted-brighter:		hsl(310deg 10% 65%);
-	--secondary-muted:				hsl(310deg 10% 50%);
-	--secondary-muted-darker:		hsl(310deg 10% 30%);
-	--secondary-muted-darkest:		hsl(310deg 10% 20%);
+	/* Complementary colors */
+	--foreground-contrast:			hsl(310deg 10% 96%);
+	--foreground:					hsl(310deg 10% 6%);
+
+	/* 0.5 contrast increments, starting from darkest */
+	--secondary-muted-brightest:	hsl(310deg 10% 88%); /* 14.25 (01.22) */
+	--secondary-muted-brighter:		hsl(310deg 10% 73%); /* 09.50 (01.83) */
+	--secondary-muted:				hsl(310deg 10% 60%); /* 06.35 (02.71) */
+	--secondary-muted-darker:		hsl(310deg 10% 48%); /* 04.15 (04.20) */
+	--secondary-muted-darkest:		hsl(310deg 10% 37%); /* 02.80 (06.23) */
 
 	--transition-color:
 		color 300ms ease-in-out,
@@ -102,7 +110,7 @@
 
 ::selection {
     background-color: var(--primary);
-    color: var(--primary-contrast);
+    color: var(--foreground-contrast);
 }
 
 :focus-visible {
@@ -195,7 +203,7 @@ a {
 	}
 
 	a:active {
-		color: var(--primary-saturated-brightest);
+		color: var(--primary-saturated-brighter);
 	}
 
 header,
@@ -280,22 +288,26 @@ section:nth-child(4) {
 .contrast {
 	color: var(--foreground-contrast);
 }
+	.contrast a:any-link {
+		text-decoration-color: var(--primary-saturated-brightest);
+	}
+
 	.contrast a:link {
-		color: var(--primary-brightest);
+		color: var(--primary-saturated-brightest);
+	}
+
+	.contrast a:visited {
+		color: var(--primary-pale);
 	}
 
 	.contrast a:hover,
 	.contrast a:focus,
 	.contrast a:focus-visible {
-		color: var(--primary-saturated);
+		color: var(--primary-pale-brighter);
 	}
 
 	.contrast a:active {
-		color: var(--foreground-contrast);
-	}
-
-	.contrast a:visited {
-		color: var(--primary-saturated-brightest);
+		color: var(--primary-pale-brightest);
 	}
 
 .container {
@@ -319,7 +331,7 @@ section:nth-child(4) {
 
 .cta {
 	background-color: var(--primary);
-	border-inline-end-color: white;
+	border-inline-end-color: var(--foreground-contrast);
 	border-inline-end-style: solid;
 	border-inline-end-width: 2em;
 	border-radius: 0.25em;
@@ -354,17 +366,17 @@ section:nth-child(4) {
 	}
 
 	.cta:visited {
-		background-color: var(--primary-darker);
+		background-color: var(--primary-muted-darker);
 	}
 
-	.cta:visited svg {
+	/* .cta:visited svg {
 		color: var(--primary);
-	}
+	} */
 
 	.cta:hover,
 	.cta:focus,
 	.cta:focus-visible {
-		background-color: var(--primary-saturated);
+		background-color: var(--primary-saturated-brighter);
 	}
 
 	.cta:active {
@@ -408,7 +420,6 @@ section:nth-child(4) {
 	max-block-size: 100%;
 	overflow-y: auto;
 	position: fixed;
-	text-align: end;
 	z-index: 1;
 }
 	.navigation ul {
@@ -419,7 +430,6 @@ section:nth-child(4) {
 	}
 
 	.navigation li {
-		text-align: start;
 		margin-inline-start: auto;
 	}
 
@@ -430,9 +440,9 @@ section:nth-child(4) {
 		border-width: 1px;
 		color: var(--foreground-contrast);
 		display: block;
-		margin-inline-start: 1em;
+		margin-inline-start: 3em;
 		padding-block: 1em;
-		padding-inline-start: 2em;
+		padding-inline-start: 1em;
 		text-decoration: none;
 		transition-duration: 300ms;
 		transition-property: margin, color, background-color, border-color;
@@ -443,7 +453,7 @@ section:nth-child(4) {
 		.navigation a:focus-visible {
 			background-color: var(--primary);
 			border-color: var(--primary);
-			margin-inline-start: 0;
+			margin-inline-start: 2em;
 		}
 
 .toggle-target li {
@@ -484,36 +494,40 @@ section:nth-child(4) {
 
 .toggle-icon {
 	background-color: var(--primary);
+	border-color: var(--primary-brighter);
+	border-inline-start-style: solid;
+	border-width: 3em;
 	color: var(--foreground-contrast);
-	display: inline-block;
-	font-size: var(--step--1);
-	inline-size: auto;
+	display: block;
+	inline-size: 8em;
+	line-height: 1;
 	margin-inline-start: auto;
-	padding-block: 0.5em;
+	padding-block: 1em;
 	padding-inline: 1em;
-	transition: var(--transition-color);
+	position: relative;
+	transition-property: inline-size, background-color, border-color;
+	transition-timing-function: ease-in;
+	transition-duration: 300ms;
 }
 	.toggle-icon svg {
-		vertical-align: middle;
-		block-size: 1em;
-		inline-size: 1em;
-	}
-
-	.toggle-icon .icon-close {
-		opacity: 0;
+		block-size: 3em;
+		inline-size: 3em;
+		inset-block-start: 0;
+		inset-inline-start: -3em;
+		position: absolute;
+		transition-duration: 300ms;
+		transition-property: transform;
+		transition-timing-function: ease-in-out;
 	}
 
 	.toggle-trigger:checked ~ .toggle-icon {
-		background-color: var(--foreground-contrast);
-		color: var(--primary);
+		background-color: var(--primary-muted);
+		border-color: var(--primary-muted-brighter);
+		inline-size: 100%;
 	}
 
-	.toggle-trigger:checked ~ .toggle-icon .icon-navigation {
-		opacity: 0;
-	}
-
-	.toggle-trigger:checked ~ .toggle-icon .icon-close {
-		opacity: 1;
+	.toggle-trigger:checked ~ .toggle-icon svg {
+		transform: rotate(-180deg);
 	}
 
 	.toggle-icon:hover,
@@ -522,8 +536,8 @@ section:nth-child(4) {
 	.toggle-trigger:checked ~ .toggle-icon:hover,
 	.toggle-trigger:checked ~ .toggle-icon:focus,
 	.toggle-trigger:checked ~ .toggle-icon:focus-visible  {
-		background-color: var(--primary-saturated);
-		color: var(--foreground-contrast);
+		background-color: var(--primary-saturated-brighter);
+		border-color: var(--primary-saturated-brightest);
 	}
 
 
@@ -538,10 +552,14 @@ section:nth-child(4) {
 /* 40 * 16px = 640px (or greater) */
 @media (min-width: 40em) {
 
+	h4 {
+		margin-block-end: 1rem;
+	}
+
 	/* .navigationigation horisontal layout */
 	.navigation {
-		background-color: var(--primary-muted-brightest);
-		background-image: linear-gradient(0deg, var(--primary-muted-brighter) 0.2em, var(--primary-muted-brightest) 0.2em);
+		background-color: var(--primary-pale-brightest);
+		background-image: linear-gradient(0deg, var(--primary-pale-brighter) 0.2em, var(--primary-pale-brightest) 0.2em);
 		padding-inline: calc(5vw - 1em);
 		position: sticky;
 	}
@@ -570,8 +588,9 @@ section:nth-child(4) {
 			.navigation a:hover,
 			.navigation a:focus,
 			.navigation a:focus-visible {
-				border-block-end-color: var(--primary-brighter);
+				border-block-end-color: var(--primary-darker);
 				color: var(--foreground-contrast);
+				margin-inline-start: 0;
 			}
 
 	.toggle-icon {
