@@ -586,6 +586,7 @@ section:nth-child(4) {
 			.navigation a:focus-visible {
 				border-block-end-color: var(--primary-darker);
 				color: var(--foreground-contrast);
+				margin-inline-start: 0;
 			}
 
 	.toggle-icon {
