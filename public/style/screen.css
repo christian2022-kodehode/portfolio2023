@@ -496,36 +496,37 @@ section:nth-child(4) {
 
 .toggle-icon {
 	background-color: var(--primary);
+	border-color: var(--primary-brighter);
+	border-inline-start-style: solid;
+	border-width: 3em;
 	color: var(--foreground-contrast);
 	display: inline-block;
-	font-size: var(--step--1);
 	inline-size: auto;
+	line-height: 1;
 	margin-inline-start: auto;
-	padding-block: 0.5em;
+	padding-block: 1em;
 	padding-inline: 1em;
+	position: relative;
 	transition: var(--transition-color);
 }
 	.toggle-icon svg {
-		vertical-align: middle;
-		block-size: 1em;
-		inline-size: 1em;
-	}
-
-	.toggle-icon .icon-close {
-		opacity: 0;
+		block-size: 3em;
+		inline-size: 3em;
+		inset-block-start: 0;
+		inset-inline-start: -3em;
+		position: absolute;
+		transition-duration: 300ms;
+		transition-property: transform;
+		transition-timing-function: ease-in-out;
 	}
 
 	.toggle-trigger:checked ~ .toggle-icon {
-		background-color: var(--foreground-contrast);
-		color: var(--primary);
+		background-color: var(--primary-muted);
+		border-color: var(--primary-muted-brighter);
 	}
 
-	.toggle-trigger:checked ~ .toggle-icon .icon-navigation {
-		opacity: 0;
-	}
-
-	.toggle-trigger:checked ~ .toggle-icon .icon-close {
-		opacity: 1;
+	.toggle-trigger:checked ~ .toggle-icon svg {
+		transform: rotate(-180deg);
 	}
 
 	.toggle-icon:hover,
@@ -534,8 +535,8 @@ section:nth-child(4) {
 	.toggle-trigger:checked ~ .toggle-icon:hover,
 	.toggle-trigger:checked ~ .toggle-icon:focus,
 	.toggle-trigger:checked ~ .toggle-icon:focus-visible  {
-		background-color: var(--primary-saturated);
-		color: var(--foreground-contrast);
+		background-color: var(--primary-saturated-brighter);
+		border-color: var(--primary-saturated-brightest);
 	}
 
 
