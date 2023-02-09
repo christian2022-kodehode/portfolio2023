@@ -33,18 +33,19 @@
 }
 
 :root {
-	/* Primary colors										contrast ratio (inverted) */
-	--primary-saturated-brightest:	hsl(130deg 100% 38%); /* 07.77 (02.19) */
-	--primary-saturated-brighter:	hsl(130deg 100% 30%); /* 04.94 (03.44) */
-	--primary-saturated:			hsl(130deg 100% 24%); /* 03.49 (04.99) */
-	--primary-saturated-darker:		hsl(130deg 100% 18%); /* 02.27 (07.66) */
-	--primary-saturated-darkest:	hsl(130deg 100% 12%); /* 01.52 (11.77) */
-
+	/* https://contrast-ratio.com */
+	/* Primary colors								contrast ratio (inverted) */
 	--primary-brightest:			hsl(130deg 66% 45%); /* 07.82 (02.23) */
 	--primary-brighter:				hsl(130deg 66% 36%); /* 05.14 (03.38) */
 	--primary:						hsl(130deg 66% 28%); /* 03.32 (05.31) */
 	--primary-darker:				hsl(130deg 66% 21%); /* 02.28 (07.75) */
 	--primary-darkest:				hsl(130deg 66% 14%); /* 01.54 (11.61) */
+
+	--primary-saturated-brightest:	hsl(130deg 100% 47%); /* 12.33 (01.42) */
+	--primary-saturated-brighter:	hsl(130deg 100% 38%); /* 07.77 (02.19) */
+	--primary-saturated:			hsl(130deg 100% 30%); /* 04.94 (03.44) */
+	--primary-saturated-darker:		hsl(130deg 100% 24%); /* 03.49 (04.99) */
+	--primary-saturated-darkest:	hsl(130deg 100% 18%); /* 02.27 (07.66) */
 
 	--primary-pale-brightest:		hsl(130deg 50% 87%); /* 15.21 (01.14) */
 	--primary-pale-brighter:		hsl(130deg 50% 74%); /* 12.15 (01.43) */
@@ -222,11 +223,11 @@ a {
 	a:hover,
 	a:focus,
 	a:focus-visible {
-		color: var(--primary-saturated);
+		color: var(--primary-saturated-brighter);
 	}
 
 	a:active {
-		color: var(--primary-saturated-brighter);
+		color: var(--primary-saturated-brightest);
 	}
 
 article {
@@ -718,6 +719,10 @@ hr {
 
 		.grid--priorities {
 			display: grid;
+		}
+
+		.grid-col-last .cta {
+			margin-inline-start: 0;
 		}
 
 		/* .grid--projects {
