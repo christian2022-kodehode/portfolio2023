@@ -235,6 +235,10 @@ article {
 	max-inline-size: 32em;
 }
 
+section {
+	padding-block-start: 4em;
+}
+
 header,
 footer,
 section article {
@@ -294,7 +298,6 @@ section:nth-child(4) {
 	background-color: var(--primary-muted-darkest);
 }
 	section:nth-child(4) .transition {
-		margin-block-start: 6em;
 		color: var(--primary-muted-darker);
 	}
 
@@ -360,9 +363,10 @@ hr {
 	}
 
 .transition {
-	display: block;
 	block-size: auto;
+	display: block;
 	inline-size: 100%;
+	margin-block-start: 4em;
 }
 
 .cta {
