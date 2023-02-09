@@ -148,14 +148,31 @@ h5,
 h6 {
 	font-stretch: 25%;
 	line-height: 0.9;
-	margin: 0;
 	text-transform: uppercase;
 }
+	h1 {
+		margin-block: 0;
+	}
+
 	h1,
 	h2 {
 		font-weight: 300;
 		font-size: var(--step-3);
 		letter-spacing: normal;
+	}
+
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-block-end: 1rem;
+	}
+
+	h4,
+	h5,
+	h6 {
+		margin-block-start: 3rem;
 	}
 
 	h3,
@@ -174,6 +191,7 @@ h6 {
 
 	h4 {
 		font-size: var(--step-2);
+		/* margin-block-end: 1rem; */
 	}
 		h4 em {
 			display: block;
@@ -181,6 +199,10 @@ h6 {
 			font-weight: 300;
 			letter-spacing: normal;
 		}
+
+p {
+	margin-block-start: 0;
+}
 
 a {
 	color: var(--primary);
@@ -249,9 +271,9 @@ section:nth-child(2) {
 section:nth-child(3) {
 	background-color: var(--secondary-muted);
 }
-	section:nth-child(3) article {
+	/* section:nth-child(3) article {
 		padding-block: 2em;
-	}
+	} */
 
 	section:nth-child(3) h1,
 	section:nth-child(3) h2,
@@ -281,9 +303,9 @@ section:nth-child(4) {
  *
  * * * */
 
-.grid {
+/* .grid {
 	margin-block-start: 2em;
-}
+} */
 
 .contrast {
 	color: var(--foreground-contrast);
@@ -388,6 +410,46 @@ section:nth-child(4) {
 	}
 
 
+.grid-col-full {
+	grid-column-end: last-col-end;
+	grid-column-start: first-col-start;
+}
+
+.grid ol,
+.grid-col-first {
+	grid-column-end: 2;
+	grid-column-start: 1;
+}
+
+.grid h1,
+.grid h2,
+.grid h3,
+.grid h4,
+.grid h5,
+.grid h6,
+.grid p,
+.grid .grid-col-main {
+	grid-column-end: main-col-end;
+	grid-column-start: main-col-start;
+}
+
+.grid ul,
+.grid-col-last {
+	grid-column-end: -1;
+	grid-column-start: -2;
+}
+
+.grid-row-first {
+	grid-row-end: 2;
+	grid-row-start: 1;
+}
+
+.grid-row-last {
+	grid-row-end: -2;
+	grid-row-start: -1;
+}
+
+
 
 /*
  *   4. Content components
@@ -397,7 +459,7 @@ section:nth-child(4) {
  * * * */
 
 .hero {
-	padding-block-start: 6em;
+	padding-block-start: 4em;
 }
 	.hero h2 {
 		font-size: var(--step-5);
@@ -598,68 +660,17 @@ section:nth-child(4) {
 		inline-size: auto;
 	}
 
-	/* 2 column grid */
-	.grid {
+	.projects .grid {
 		column-gap: 2em;
 		display: grid;
 		grid-template-columns:
 			[first-col-start main-col-start] 1fr
 			[first-col-end main-col-end last-col-start] min-content
 			[last-col-end];
-		padding-inline: 5vw;
-		row-gap: 1em;
+		/* padding-inline: 5vw; */
 	}
-		.grid--basic {
-			display: block;
-		}
 
-		.grid .grid-col-full {
-			grid-column-end: last-col-end;
-			grid-column-start: first-col-start;
-		}
-
-		.grid ol,
-		.grid .grid-col-first {
-			grid-column-end: 2;
-			grid-column-start: 1;
-		}
-
-		.grid h1,
-		.grid h2,
-		.grid h3,
-		.grid h4,
-		.grid h5,
-		.grid h6,
-		.grid p,
-		.grid .grid-col-main {
-			grid-column-end: main-col-end;
-			grid-column-start: main-col-start;
-		}
-
-		.grid ul,
-		.grid .grid-col-last {
-			grid-column-end: -1;
-			grid-column-start: -2;
-		}
-
-		.grid .grid-row-first {
-			grid-row-end: 2;
-			grid-row-start: 1;
-		}
-
-		.grid .grid-row-last {
-			grid-row-end: -2;
-			grid-row-start: -1;
-		}
-
-		.grid > *
-		/*.grid > p,
-		.grid > ul,
-		.grid > ol*/ { 
-			margin-block-start: 0;
-		}
-
-	.cta {
+	.projects .cta {
 		margin-inline-start: 0;
 	}
 }
@@ -667,27 +678,43 @@ section:nth-child(4) {
 /* 90 * 16px = 1440px (or greater) */
 @media (min-width: 90em) {
 
+	.grid > * { 
+		margin-block-start: 0;
+	}
+
+	.grid h4,
+	.grid h5,
+	.grid h6 {
+		grid-column-end: first-col-end;
+		grid-column-start: first-col-start;
+		text-align: end;
+	}
+
 	/* 3 column grid */
-	.grid {
+	.projects .grid,
+	.priorities .grid {
 		grid-template-columns:
 			[first-col-start] 1fr
 			[first-col-end main-col-start] minmax(16em, 32em)
 			[main-col-end last-col-start] 1fr
 			[last-col-end];
-		margin-block-start: 2em;
+		/* margin-block-start: 2em; */
 		max-inline-size: 100%;
 	}
-		.grid--basic {
-			display: grid;
-		}
 
-		.grid h4,
-		.grid h5,
-		.grid h6 {
-			grid-column-end: first-col-end;
-			grid-column-start: first-col-start;
-			text-align: end;
-		}
+	.projects .grid {
+		row-gap: 4em;
+		margin-block-start: 4em;
+	}
+
+	/* .priorities .grid {
+		column-gap: 2em;
+		display: grid;
+		grid-template-columns:
+			[first-col-start] 1fr
+			[first-col-end main-col-start last-col-start] minmax(16em, 32em)
+			[main-col-end last-col-end];
+	} */
 }
 
 /* @media (scripting: none) {
