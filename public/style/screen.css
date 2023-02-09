@@ -150,15 +150,15 @@ h6 {
 	line-height: 0.9;
 	text-transform: uppercase;
 }
-	h1 {
-		margin-block: 0;
-	}
-
 	h1,
 	h2 {
 		font-weight: 300;
 		font-size: var(--step-3);
 		letter-spacing: normal;
+	}
+
+	h1 {
+		margin-block: 0;
 	}
 
 	h2,
@@ -167,12 +167,6 @@ h6 {
 	h5,
 	h6 {
 		margin-block-end: 1rem;
-	}
-
-	h4,
-	h5,
-	h6 {
-		margin-block-start: 3rem;
 	}
 
 	h3,
@@ -184,9 +178,16 @@ h6 {
 	}
 
 	h3 {
-		border-block-end: 0.25rem solid var(--primary);
-		display: inline-block;
+		/* border-block-end: 0.25rem solid var(--primary);
+		display: inline-block; */
 		font-size: var(--step-4);
+		margin-block-start: 0;
+	}
+
+	h4,
+	h5,
+	h6 {
+		margin-block-start: 3rem;
 	}
 
 	h4 {
@@ -228,6 +229,12 @@ a {
 		color: var(--primary-saturated-brighter);
 	}
 
+article {
+	box-sizing: content-box;
+	margin-inline: auto;
+	max-inline-size: 32em;
+}
+
 header,
 footer,
 section article {
@@ -244,12 +251,6 @@ footer {
 	background-color: var(--primary-muted-darker);
 	padding-block-end: 50vh;
 	padding-block-start: 4em;
-}
-
-article {
-	box-sizing: content-box;
-	margin-inline: auto;
-	max-inline-size: 32em;
 }
 
 section:nth-child(1) {
@@ -294,6 +295,16 @@ section:nth-child(4) {
 	padding-block-end: 6em;
 }
 
+hr {
+	border-block-end-style: solid;
+	border-block-start-style: none;
+	border-color: var(--foreground-contrast);
+	border-inline-style: none;
+	inline-size: 100%;
+	margin-block: 1em;
+	max-inline-size: 32em;
+	opacity: 0.1;
+}
 
 
 /*
@@ -409,45 +420,39 @@ section:nth-child(4) {
 		margin-block-start: 1em;
 	}
 
-
-.grid-col-full {
-	grid-column-end: last-col-end;
-	grid-column-start: first-col-start;
+.grid {
+	column-gap: 2em;
 }
+	.grid > * {
+		grid-column-end: main-col-end;
+		grid-column-start: main-col-start;
+	}
 
-.grid ol,
-.grid-col-first {
-	grid-column-end: 2;
-	grid-column-start: 1;
-}
+	.grid-col-first {
+		grid-column-end: 2;
+		grid-column-start: 1;
+	}
 
-.grid h1,
-.grid h2,
-.grid h3,
-.grid h4,
-.grid h5,
-.grid h6,
-.grid p,
-.grid .grid-col-main {
-	grid-column-end: main-col-end;
-	grid-column-start: main-col-start;
-}
+	.grid-col-last {
+		grid-column-end: -1;
+		grid-column-start: -2;
+	}
 
-.grid ul,
-.grid-col-last {
-	grid-column-end: -1;
-	grid-column-start: -2;
-}
+	.grid hr,
+	.grid-col-full {
+		grid-column-end: -1;
+		grid-column-start: 1;
+	}
 
-.grid-row-first {
-	grid-row-end: 2;
-	grid-row-start: 1;
-}
+	.grid-row-first {
+		grid-row-end: 2;
+		grid-row-start: 1;
+	}
 
-.grid-row-last {
-	grid-row-end: -2;
-	grid-row-start: -1;
-}
+	.grid-row-last {
+		grid-row-end: -2;
+		grid-row-start: -1;
+	}
 
 
 
@@ -660,61 +665,58 @@ section:nth-child(4) {
 		inline-size: auto;
 	}
 
-	.projects .grid {
-		column-gap: 2em;
-		display: grid;
+	.grid {
 		grid-template-columns:
 			[first-col-start main-col-start] 1fr
 			[first-col-end main-col-end last-col-start] min-content
 			[last-col-end];
-		/* padding-inline: 5vw; */
 	}
+		.grid--projects {
+			display: grid;
+		}
 
-	.projects .cta {
+	/* .projects .cta {
 		margin-inline-start: 0;
-	}
+	} */
 }
 
 /* 90 * 16px = 1440px (or greater) */
 @media (min-width: 90em) {
 
-	.grid > * { 
-		margin-block-start: 0;
-	}
-
-	.grid h4,
-	.grid h5,
-	.grid h6 {
-		grid-column-end: first-col-end;
-		grid-column-start: first-col-start;
-		text-align: end;
-	}
-
 	/* 3 column grid */
-	.projects .grid,
-	.priorities .grid {
+	.grid {
 		grid-template-columns:
 			[first-col-start] 1fr
-			[first-col-end main-col-start] minmax(16em, 32em)
+			[first-col-end main-col-start] minmax(8em, 32em)
 			[main-col-end last-col-start] 1fr
 			[last-col-end];
-		/* margin-block-start: 2em; */
 		max-inline-size: 100%;
 	}
 
-	.projects .grid {
-		row-gap: 4em;
-		margin-block-start: 4em;
-	}
+		.grid > * { 
+			margin-block-start: 1rem;
+		}
 
-	/* .priorities .grid {
-		column-gap: 2em;
-		display: grid;
-		grid-template-columns:
-			[first-col-start] 1fr
-			[first-col-end main-col-start last-col-start] minmax(16em, 32em)
-			[main-col-end last-col-end];
-	} */
+		.grid > h3 {
+			margin-block-start: 0;
+		}
+
+		.grid h4,
+		.grid h5,
+		.grid h6 {
+			grid-column-end: first-col-end;
+			grid-column-start: first-col-start;
+			text-align: end;
+		}
+
+		.grid--priorities {
+			display: grid;
+		}
+
+		/* .grid--projects {
+			row-gap: 3em;
+			margin-block-start: 3em;
+		} */
 }
 
 /* @media (scripting: none) {
