@@ -655,10 +655,11 @@ hr {
 /* 40 * 16px = 640px (or greater) */
 @media (min-width: 40em) {
 
+	/* reset styling for small-screen navigation */
 	.accordion-toggle:checked ~ .accordion-content {
-		transition-timing-function: unset;
-		transition-delay: unset;
 		max-inline-size: 34em;
+		transition-delay: unset;
+		transition-timing-function: unset;
 	}
 
 	.accordion-content {
@@ -689,7 +690,7 @@ hr {
 		display: none;
 	}
 
-	/* .navigationigation horisontal layout */
+	/* navigation horisontal layout */
 	.navigation {
 		background-color: var(--primary-pale-brightest);
 		background-image: linear-gradient(0deg, var(--primary-pale-brighter) 0.2em, var(--primary-pale-brightest) 0.2em);
@@ -706,13 +707,13 @@ hr {
 		}
 		
 		.navigation a {
-			padding-block: 3vh;
 			background-color: unset;
-			color: var(--primary);
-			margin-inline-start: unset;
-			padding-inline-end: 1em;
 			border-block-end-color: var(--primary-pale-brighter);
 			border-block-end-width: 0.2em;
+			color: var(--primary);
+			margin-inline-start: unset;
+			padding-block: 3vh;
+			padding-inline-end: 1em;
 		}
 
 		.navigation a:hover,
@@ -723,6 +724,7 @@ hr {
 			margin-inline-start: unset;
 		}
 
+	/* 2 column grid */
 	.grid {
 		grid-template-columns:
 			[first-col-start main-col-start] 1fr
@@ -732,10 +734,6 @@ hr {
 		.grid--projects {
 			display: grid;
 		}
-
-	/* .projects .cta {
-		margin-inline-start: 0;
-	} */
 }
 
 /* 90 * 16px = 1440px (or greater) */
@@ -774,20 +772,7 @@ hr {
 		.grid-col-last .cta {
 			margin-inline-start: 0;
 		}
-
-		/* .grid--projects {
-			row-gap: 3em;
-			margin-block-start: 3em;
-		} */
 }
-
-/* @media (min-height: 20em) {
-
-	.navigation a {
-		background-color: red;
-		padding-block: 1em;
-	}
-} */
 
 /* @media (scripting: none) {
 
