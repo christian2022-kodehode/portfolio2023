@@ -1,0 +1,21 @@
+@font-face {
+	font-family: Roboto Flex;
+	font-weight: 300 1000;
+	font-stretch: 25% 100%;
+	src: local(Roboto Flex), url(RobotoFlex-custom.ttf) format(truetype);
+}
+
+body {
+	font-family: Roboto Flex, Roboto, Heebo, sans-serif;
+}
+
+nav,
+.separator {
+	display: none;
+}
+
+.cta svg {
+	width: 1em;
+	height: 1em;
+	vertical-align: middle;
+}
