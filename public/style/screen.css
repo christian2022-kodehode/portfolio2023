@@ -27,8 +27,8 @@
 
 @font-face {
 	font-family: Roboto Flex;
-	font-weight: 300 1000;
 	font-stretch: 25% 100%;
+	font-weight: 300 1000;
 	src: local(Roboto Flex), url(RobotoFlex-custom.ttf) format(truetype);
 }
 
@@ -49,11 +49,11 @@
 	--primary-saturated-darker:		hsl(130deg 100% 24%); /* 03.49 (04.99) */
 	--primary-saturated-darkest:	hsl(130deg 100% 18%); /* 02.27 (07.66) */
 
-	--primary-pale-brightest:		hsl(130deg 25% 89%); /* 15.21 (01.14) */
-	--primary-pale-brighter:		hsl(130deg 25% 78%); /* 12.15 (01.43) */
-	--primary-pale:					hsl(130deg 25% 68%); /* 09.63 (01.79) */
-	--primary-pale-darker:			hsl(130deg 25% 59%); /* 08.07 (02.16) */
-	--primary-pale-darkest:			hsl(130deg 25% 50%); /* 06.30 (02.76) */
+	--primary-pale-brightest:		hsl(130deg 25% 95%); /* 15.21 (01.14) */
+	--primary-pale-brighter:		hsl(130deg 25% 90%); /* 12.15 (01.43) */
+	--primary-pale:					hsl(130deg 25% 85%); /* 09.63 (01.79) */
+	--primary-pale-darker:			hsl(130deg 25% 80%); /* 08.07 (02.16) */
+	--primary-pale-darkest:			hsl(130deg 25% 76%); /* 06.30 (02.76) */
 
 	--primary-muted-brightest:		hsl(130deg 10% 53%); /* 05.74 (03.03) */
 	--primary-muted-brighter:		hsl(130deg 10% 41%); /* 03.72 (04.67) */
@@ -73,9 +73,9 @@
 	--secondary-muted-darkest:		hsl(310deg 10% 37%); /* 02.80 (06.23) */
 
 	--transition-color:
-		color 300ms ease-in-out,
 		background-color 300ms ease-in-out,
 		border-color 300ms ease-in-out,
+		color 300ms ease-in-out,
 		opacity 300ms ease-in-out;
 
 	/* Fluid Type Scales, by James Gilyead & Trys Mudford - https://utopia.fyi/blog/css-modular-scales */
@@ -140,7 +140,6 @@ body {
 	font-weight: 400;
 	line-height: 1.3;
 	margin: 0;
-	padding: 0;
 	writing-mode: horizontal-tb;
 }
 
@@ -216,6 +215,7 @@ a {
 	color: var(--primary);
 	text-decoration-color: var(--primary-saturated);
 	text-decoration-thickness: 1px;
+	text-underline-offset: 0.1em;
 	transition: var(--transition-color);
 }
 	a:link {
@@ -226,9 +226,9 @@ a {
 		color: var(--primary-muted-darkest);
 	}
 
-	a:hover,
 	a:focus,
-	a:focus-visible {
+	a:focus-visible,
+	a:hover {
 		color: var(--primary-saturated-brighter);
 	}
 
@@ -236,8 +236,8 @@ a {
 		color: var(--primary-saturated-brightest);
 	}
 
-ul,
-ol {
+ol,
+ul {
 	padding-inline-start: 1em;
 }
 	::marker {
@@ -256,16 +256,16 @@ section {
 	padding-block-start: 4em;
 }
 
-header,
 footer,
+header,
 section article {
 	padding-inline: 5vw;
 }
 
 header {
 	background-color: white;
-	padding-block-start: calc(1em + 5vh);
 	padding-block-end: 1em;
+	padding-block-start: calc(1em + 5vh);
 }
 
 footer {
@@ -298,8 +298,8 @@ section:nth-child(3) {
 	section:nth-child(3) h4,
 	section:nth-child(3) h5,
 	section:nth-child(3) h6 {
-		color: var(--foreground-contrast);
 		border-color: var(--primary-brightest);
+		color: var(--foreground-contrast);
 	}
 
 	section:nth-child(3) .separator {
@@ -330,9 +330,9 @@ section:nth-child(4) {
 		color: var(--primary-pale-brighter);
 	}
 
-	section:nth-child(4) a:hover,
 	section:nth-child(4) a:focus,
-	section:nth-child(4) a:focus-visible {
+	section:nth-child(4) a:focus-visible,
+	section:nth-child(4) a:hover {
 		color: var(--primary-saturated-brightest);
 	}
 
@@ -361,13 +361,13 @@ hr {
  * * * */
 
 .split {
-	display: flex;
 	column-gap: 2em;
+	display: flex;
 	flex-wrap: wrap;
 }
 	.split > * {
-		flex-grow: 1;
 		flex-basis: 10em;
+		flex-grow: 1;
 	}
 
 .contrast {
@@ -385,9 +385,9 @@ hr {
 		color: var(--primary-pale-brighter);
 	}
 
-	.contrast a:hover,
 	.contrast a:focus,
-	.contrast a:focus-visible {
+	.contrast a:focus-visible,
+	.contrast a:hover {
 		color: var(--primary-saturated-brightest);
 	}
 
@@ -396,8 +396,8 @@ hr {
 	}
 
 .container {
-	max-inline-size: 32em;
 	margin-inline: auto;
+	max-inline-size: 32em;
 }
 
 .list-style-none {
@@ -435,10 +435,10 @@ hr {
 	text-decoration: none;
 	text-transform: uppercase;
 }
-	.cta,
-	.cta:any-link,
 	.contrast .cta,
-	.contrast .cta:any-link {
+	.contrast .cta:any-link,
+	.cta,
+	.cta:any-link {
 		color: var(--foreground-contrast);
 	}
 
@@ -447,8 +447,8 @@ hr {
 		color: var(--foreground-contrast);
 		inline-size: 1em;
 		inset-block: 0.5em;
-		inset-inline-start: -1.5em;
 		inset-inline-end: auto;
+		inset-inline-start: -1.5em;
 		position: absolute;
 	}
 
@@ -457,9 +457,9 @@ hr {
 		border-color: var(--primary-muted);
 	}
 
-	.cta:hover,
 	.cta:focus,
-	.cta:focus-visible {
+	.cta:focus-visible,
+	.cta:hover {
 		background-color: var(--primary-saturated-brighter);
 		border-color: var(--primary-saturated-brightest);
 	}
@@ -520,9 +520,9 @@ hr {
  * * * */
 
 .logo {
-	width: 1em;
 	height: 1em;
 	vertical-align: bottom;
+	width: 1em;
 }
 	.logo-primary {
 		fill: var(--primary-muted-brighter);
@@ -536,11 +536,11 @@ hr {
 	padding-block-start: 4em;
 }
 	.hero h2 {
+		/* letter-spacing: -0.03em; */
+		/* line-height: 0.8; */
 		font-size: var(--step-5);
 		font-variation-settings: "opsz" 48;
 		font-weight: 700;
-		/* letter-spacing: -0.03em; */
-		/* line-height: 0.8; */
 		text-transform: uppercase;
 	}
 
@@ -560,8 +560,8 @@ hr {
 
 	.navigation a {
 		background-color: var(--primary-darkest);
-		border-block-end-style: solid;
 		border-block-end-color: var(--primary-darker);
+		border-block-end-style: solid;
 		border-block-end-width: 1px;
 		color: var(--foreground-contrast);
 		display: block;
@@ -574,9 +574,9 @@ hr {
 		transition-property: color, background-color, border-color, margin;
 		transition-timing-function: ease-out, ease-in, ease-in, ease-in;
 	}
-		.navigation a:hover,
 		.navigation a:focus,
-		.navigation a:focus-visible {
+		.navigation a:focus-visible,
+		.navigation a:hover {
 			background-color: var(--primary);
 			border-color: var(--primary);
 			margin-inline-start: 2em;
@@ -585,28 +585,28 @@ hr {
 .accordion-content,
 .accordion-trigger {
 	inset-inline-end: 0;
-	z-index: 1;
 	position: fixed;
+	z-index: 1;
 }
 	.accordion-trigger {
 		inset-block-start: 0;
 	}
 
 	.accordion-content {
-		inset-block-start: 3em;
-		inset-block-end: 0;
-		max-block-size: 100%;
-		overflow-y: auto;
-		max-inline-size: 0;
 		inline-size: 100%;
+		inset-block-end: 0;
+		inset-block-start: 3em;
+		max-block-size: 100%;
+		max-inline-size: 0;
+		overflow-y: auto;
 		transition-delay: 600ms;
 		transition-property: max-inline-size;
 		transition-timing-function: step-end;
 	}
 		.accordion-toggle:checked ~ .accordion-content {
 			max-inline-size: 13em;
-			transition-timing-function: step-start;
 			transition-delay: 0ms;
+			transition-timing-function: step-start;
 		}
 
 .accordion-content li {
@@ -653,14 +653,14 @@ hr {
 	border-inline-start-width: 3em;
 	color: var(--foreground-contrast);
 	display: block;
-	max-inline-size: 10em;
 	inline-size: 100%;
 	margin-inline-start: auto;
+	max-inline-size: 10em;
 	padding-block: 1em;
 	padding-inline: 1em;
+	transition-duration: 300ms;
 	transition-property: max-inline-size, background-color, border-color;
 	transition-timing-function: ease-in;
-	transition-duration: 300ms;
 }
 	.accordion-toggle:checked ~ .accordion-trigger {
 		background-color: var(--primary-muted);
@@ -682,12 +682,12 @@ hr {
 			transform: rotate(-180deg);
 		}
 
-	.accordion-trigger:hover,
+	.accordion-toggle:checked ~ .accordion-trigger:focus,
+	.accordion-toggle:checked ~ .accordion-trigger:focus-visible,
+	.accordion-toggle:checked ~ .accordion-trigger:hover,
 	.accordion-trigger:focus,
 	.accordion-trigger:focus-visible,
-	.accordion-toggle:checked ~ .accordion-trigger:hover,
-	.accordion-toggle:checked ~ .accordion-trigger:focus,
-	.accordion-toggle:checked ~ .accordion-trigger:focus-visible  {
+	.accordion-trigger:hover {
 		background-color: var(--primary-saturated-brighter);
 		border-color: var(--primary-saturated-brightest);
 	}
@@ -743,9 +743,9 @@ hr {
 	.navigation {
 		background-color: var(--primary-pale-brightest);
 		background-image: linear-gradient(0deg, var(--primary-pale-brighter) 0.2em, var(--primary-pale-brightest) 0.2em);
+		inset-block-start: 0;
 		padding-inline: calc(5vw - 1em);
 		position: sticky;
-		inset-block-start: 0;
 		z-index: 1;
 	}
 		.navigation ul {
