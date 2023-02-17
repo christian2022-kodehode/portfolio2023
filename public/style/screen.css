@@ -26,10 +26,10 @@
  * * * */
 
 @font-face {
-	font-family: Roboto Flex;
+	font-family: Dosis;
 	font-stretch: 25% 100%;
 	font-weight: 300 1000;
-	src: local(Roboto Flex), url(RobotoFlex-custom.ttf) format(truetype);
+	src: local(Dosis), url(Dosis.ttf) format(truetype);
 }
 
 :root {
@@ -134,7 +134,7 @@
 body {
 	background-color: var(--secondary-background);
 	color: var(--foreground);
-	font-family: Roboto Flex, Roboto, Heebo, sans-serif;
+	font-family: Dosis, sans-serif;
 	font-size: var(--step-0);
 	font-stretch: 100%;
 	font-weight: 400;
@@ -412,7 +412,7 @@ hr {
 	block-size: auto;
 	display: block;
 	inline-size: 100%;
-	margin-block-start: 4em;
+	margin-block-start: 15vh;
 }
 
 .cta {
@@ -474,7 +474,7 @@ hr {
 
 .grid {
 	box-sizing: content-box;
-	column-gap: 2em;
+	gap: 2em;
 	margin-inline: auto;
 	max-inline-size: 32em;
 	padding-inline: 5vw;
