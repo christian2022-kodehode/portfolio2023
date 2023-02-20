@@ -173,6 +173,7 @@ h6 {
 	h5,
 	h6 {
 		margin-block-end: 1rem;
+		margin-block-start: 0;
 	}
 
 	h3,
@@ -184,21 +185,11 @@ h6 {
 	}
 
 	h3 {
-		/* border-block-end: 0.25rem solid var(--primary);
-		display: inline-block; */
 		font-size: var(--step-4);
-		margin-block-start: 0;
-	}
-
-	h4,
-	h5,
-	h6 {
-		margin-block-start: 4rem;
 	}
 
 	h4 {
 		font-size: var(--step-2);
-		/* margin-block-end: 1rem; */
 	}
 		h4 em {
 			display: block;
@@ -206,10 +197,6 @@ h6 {
 			font-weight: 300;
 			letter-spacing: normal;
 		}
-
-/* p {
-	margin-block-start: 0;
-} */
 
 a {
 	color: var(--primary);
@@ -250,10 +237,7 @@ article {
 	box-sizing: content-box;
 	margin-inline: auto;
 	max-inline-size: 32em;
-}
-
-section {
-	padding-block-start: 4em;
+	padding-block-start: 6em;
 }
 
 footer,
@@ -271,12 +255,10 @@ header {
 footer {
 	background-color: var(--primary-muted-darker);
 	padding-block-end: 50vh;
-	padding-block-start: 4em;
 }
 
 section:nth-child(1) {
 	background-color: var(--secondary-muted-brightest);
-	/* background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFFFFF' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); */
 }
 	section:nth-child(1) .separator {
 		color: var(--secondary-muted-brighter)
@@ -358,6 +340,7 @@ img {
 span[aria-hidden="true"] {
 	display: none;
 }
+
 
 
 /*
@@ -521,10 +504,11 @@ span[aria-hidden="true"] {
 	opacity: 0.8;
 	inline-size: 100%;
 	max-inline-size: 8em;
-	object-fit: cover;
 	block-size: 8em;
-	/* border: 1px solid white; */
-	transition-property: opacity;
+	border-block-end-style: solid;
+	border-color: var(--primary);
+	border-width: 0.25em;
+	transition-property: opacity, border-color;
 	transition-duration: 300ms;
 	transition-timing-function: ease-in;
 }
@@ -532,6 +516,7 @@ span[aria-hidden="true"] {
 	.preview-image:focus-visible,
 	.preview-image:hover {
 		opacity: 1;
+		border-color: var(--primary-saturated);
 	}
 
 
@@ -810,7 +795,6 @@ span[aria-hidden="true"] {
 			[first-col-start main-col-start] 1fr
 			[first-col-end main-col-end last-col-start] min-content
 			[last-col-end];
-		margin-block-start: 3em;
 	}
 		.grid--3cols {
 			display: grid;
