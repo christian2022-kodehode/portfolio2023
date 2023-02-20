@@ -500,23 +500,28 @@ span[aria-hidden="true"] {
 		grid-row-start: -1;
 	}
 
+.preview-container {
+	float: left;
+}
+
 .preview-image {
-	opacity: 0.8;
-	inline-size: 100%;
-	max-inline-size: 8em;
-	block-size: 8em;
+	block-size: auto;
 	border-block-end-style: solid;
 	border-color: var(--primary);
 	border-width: 0.25em;
-	transition-property: opacity, border-color;
+	display: block;
+	inline-size: 100%;
+	max-inline-size: 8em;
+	opacity: 0.8;
 	transition-duration: 300ms;
+	transition-property: opacity, border-color;
 	transition-timing-function: ease-in;
 }
 	.preview-image:focus,
 	.preview-image:focus-visible,
 	.preview-image:hover {
-		opacity: 1;
 		border-color: var(--primary-saturated);
+		opacity: 1;
 	}
 
 
