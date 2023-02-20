@@ -1,12 +1,12 @@
 @font-face {
-	font-family: Roboto Flex;
-	font-weight: 300 1000;
+	font-family: Dosis;
 	font-stretch: 25% 100%;
-	src: local(Roboto Flex), url(RobotoFlex-custom.ttf) format(truetype);
+	font-weight: 300 1000;
+	src: local(Dosis), url(Dosis.ttf) format(truetype);
 }
 
 body {
-	font-family: Roboto Flex, Roboto, Heebo, sans-serif;
+	font-family: Dosis, sans-serif;
 }
 
 nav,
@@ -18,4 +18,38 @@ nav,
 	width: 1em;
 	height: 1em;
 	vertical-align: middle;
+}
+
+.logo {
+	width: 1em;
+	height: 1em;
+}
+	.logo-primary {
+		opacity: 0.67;
+	}
+
+	.logo-secondary {
+		opacity: 0.33;
+	}
+
+.split {
+	column-gap: 2em;
+	display: flex;
+	flex-wrap: wrap;
+}
+	.split > * {
+		flex-basis: 10em;
+		flex-grow: 1;
+	}
+
+.list-style-none {
+	list-style-type: none;
+	padding-inline-start: 0;
+}
+	.list-style-none li + li {
+		margin-block-start: 0.5em;
+	}
+
+span[aria-hidden="true"] {
+	display: none;
 }
