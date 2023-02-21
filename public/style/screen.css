@@ -134,7 +134,7 @@
 body {
 	background-color: var(--secondary-background);
 	color: var(--foreground);
-	font-family: Dosis, sans-serif;
+	font-family: Dosis, Roboto Flex, Heebo, Roboto, sans-serif;
 	font-size: var(--step-0);
 	font-stretch: 100%;
 	font-weight: 400;
