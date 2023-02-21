@@ -566,21 +566,19 @@ span[aria-hidden="true"] {
 		fill: var(--secondary-muted-brighter);
 	}
 
-.hero {
-	padding-block-start: 4em;
-}
-	.hero h2 {
-		font-size: var(--step-5);
-		font-variation-settings: "opsz" 48;
-		font-weight: 700;
-		letter-spacing: -0.02em;
-		line-height: 0.9;
-		text-transform: uppercase;
-	}
 
-	.hero h2 span {
-		display: block;
-	}
+.hero h2 {
+	font-size: var(--step-5);
+	font-variation-settings: "opsz" 48;
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	line-height: 0.9;
+	text-transform: uppercase;
+}
+
+.hero h2 span {
+	display: block;
+}
 
 .navigation {
 	font-stretch: 25%;
@@ -623,13 +621,16 @@ span[aria-hidden="true"] {
 	z-index: 1;
 }
 	.accordion-trigger {
-		inset-block-start: 0;
+		inset-block-end: 0;
 	}
 
 	.accordion-content {
+		display: flex;
+		flex-direction: column;
 		inline-size: 100%;
-		inset-block-end: 0;
-		inset-block-start: 3em;
+		inset-block-end: 3em;
+		inset-block-start: 0;
+		justify-content: flex-end;
 		max-block-size: 100%;
 		max-inline-size: 0;
 		overflow-y: auto;
@@ -656,27 +657,27 @@ span[aria-hidden="true"] {
 		max-inline-size: 100%;
 	}
 
-	.accordion-content li:nth-child(2) {
+	.accordion-content li:nth-last-child(2) {
 		transition-delay: 50ms;
 	}
 
-	.accordion-content li:nth-child(3) {
+	.accordion-content li:nth-last-child(3) {
 		transition-delay: 100ms;
 	}
 
-	.accordion-content li:nth-child(4) {
+	.accordion-content li:nth-last-child(4) {
 		transition-delay: 150ms;
 	}
 
-	.accordion-content li:nth-child(5) {
+	.accordion-content li:nth-last-child(5) {
 		transition-delay: 200ms;
 	}
 
-	.accordion-content li:nth-child(6) {
+	.accordion-content li:nth-last-child(6) {
 		transition-delay: 250ms;
 	}
 
-	.accordion-content li:nth-child(7) {
+	.accordion-content li:nth-last-child(7) {
 		transition-delay: 300ms;
 	}
 
@@ -751,6 +752,7 @@ span[aria-hidden="true"] {
 		inset-block-end: unset;
 		inset-block-start: unset;
 		inset-inline-end: unset;
+		justify-content: unset;
 		max-block-size: unset;
 		overflow-y: unset;
 		position: unset;
@@ -784,7 +786,6 @@ span[aria-hidden="true"] {
 		z-index: 1;
 	}
 		.navigation ul {
-			display: flex;
 			flex-direction: row;
 			margin-inline: auto;
 			max-inline-size: 34em;
