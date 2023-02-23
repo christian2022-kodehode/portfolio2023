@@ -29,7 +29,11 @@
 	font-family: Dosis;
 	font-stretch: 25% 100%;
 	font-weight: 300 1000;
-	src: local(Dosis), url(Dosis.ttf) format(truetype);
+	src:
+		local(Dosis),
+		url(dosis.woff2) format(woff2),
+		url(dosis.woff) format(woff),
+		url(dosis.ttf) format(truetype);
 }
 
 :root {
