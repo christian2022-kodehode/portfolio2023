@@ -27,8 +27,7 @@
 
 @font-face {
 	font-family: Dosis;
-	font-stretch: 25% 100%;
-	font-weight: 300 1000;
+	font-weight: 100 500;
 	src: local(Dosis), url(dosis.ttf) format(truetype);
 }
 
@@ -136,7 +135,6 @@ body {
 	color: var(--foreground);
 	font-family: Dosis, Roboto Flex, Heebo, Roboto, sans-serif;
 	font-size: var(--step-0);
-	font-stretch: 100%;
 	font-weight: 400;
 	line-height: 1.4;
 	margin: 0;
@@ -149,13 +147,12 @@ h3,
 h4,
 h5,
 h6 {
-	font-stretch: 25%;
 	line-height: 0.9;
 	text-transform: uppercase;
 }
 	h1,
 	h2 {
-		font-weight: 300;
+		font-weight: 100;
 		font-size: var(--step-2);
 		letter-spacing: normal;
 	}
@@ -180,7 +177,7 @@ h6 {
 	h4,
 	h5,
 	h6 {
-		font-weight: 700;
+		font-weight: 500;
 		letter-spacing: -0.01em;
 	}
 
@@ -194,7 +191,7 @@ h6 {
 		h4 em {
 			display: block;
 			font-style: normal;
-			font-weight: 300;
+			font-weight: 100;
 			letter-spacing: normal;
 		}
 
@@ -335,15 +332,24 @@ hr {
 
 img {
 	max-inline-size: 100%;
-	opacity: 0.8;
-	transition-duration: 300ms;
-	transition-property: opacity, border-color;
-	transition-timing-function: ease-in;
 }
+	a img {
+		border-block-end-width: 0.25em;
+		border-block-start-width: 1px;
+		border-color: var(--primary);
+		border-inline-width: 1px;
+		border-style: solid;
+		opacity: 0.67;
+		transition-duration: 300ms;
+		transition-property: opacity, border-color;
+		transition-timing-function: ease-in;
+	}
+
 	a:focus img,
 	a:focus-visible img,
 	a:hover img {
 		opacity: 1;
+		border-color: var(--primary-saturated);
 	}
 
 span[aria-hidden="true"] {
@@ -450,8 +456,11 @@ span[aria-hidden="true"] {
 	padding-inline-start: 0;
 }
 	.list-style-tags li {
-		background-color: var(--foreground-contrast);
-		font-weight: 600;
+		border-inline-start-color: var(--foreground-contrast);
+		border-inline-start-style: solid;
+		border-inline-start-width: 0.25em;
+		background-color: var(--secondary-muted-brightest);
+		font-weight: 500;
 		padding-inline: 0.5em;
 	}
 
@@ -470,8 +479,7 @@ span[aria-hidden="true"] {
 	border-inline-start-style: solid;
 	border-inline-start-width: 2em;
 	display: block;
-	font-stretch: 25%;
-	font-weight: 700;
+	font-weight: 500;
 	inline-size: min-content;
 	letter-spacing: -0.01em;
 	line-height: 2em;
@@ -483,10 +491,10 @@ span[aria-hidden="true"] {
 	text-decoration: none;
 	text-transform: uppercase;
 }
-	.contrast .cta,
-	.contrast .cta:any-link,
 	.cta,
-	.cta:any-link {
+	.cta:any-link,
+	.contrast .cta,
+	.contrast .cta:any-link {
 		color: var(--foreground-contrast);
 	}
 
@@ -537,23 +545,14 @@ span[aria-hidden="true"] {
 .preview-container {
 	background-color: var(--primary);
 	block-size: 7em;
-	border: 1px solid var(--foreground-contrast);
 	display: block;
 	flex-basis: 4em;
 	flex-grow: 1;
 	margin-block-end: 0.5em;
 }
-	.preview-container:focus img,
-	.preview-container:focus-visible img,
-	.preview-container:hover img {
-		border-block-end-color: var(--primary-saturated);
-	}
 
 .preview-image {
 	block-size: 100%;
-	border-block-end-color: var(--primary);
-	border-block-end-style: solid;
-	border-block-end-width: 0.25em;
 	display: block;
 	inline-size: 100%;
 	object-fit: cover;
@@ -584,8 +583,7 @@ span[aria-hidden="true"] {
 
 .hero h2 {
 	font-size: var(--step-5);
-	font-variation-settings: "opsz" 48;
-	font-weight: 700;
+	font-weight: 500;
 	letter-spacing: -0.02em;
 	line-height: 0.9;
 	text-transform: uppercase;
@@ -596,7 +594,6 @@ span[aria-hidden="true"] {
 }
 
 .navigation {
-	font-stretch: 25%;
 	line-height: 1;
 }
 	.navigation ul {
@@ -741,7 +738,6 @@ span[aria-hidden="true"] {
 		background-color: var(--primary-saturated-brighter);
 		border-color: var(--primary-saturated-brightest);
 	}
-
 
 
 
