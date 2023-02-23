@@ -445,6 +445,19 @@ span[aria-hidden="true"] {
 		margin-block-start: 0.5em;
 	}
 
+.list-style-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.25em;
+	list-style-type: none;
+	padding-inline-start: 0;
+}
+	.list-style-tags li {
+		background-color: var(--foreground-contrast);
+		font-weight: 600;
+		padding-inline: 0.5em;
+	}
+
 .separator {
 	block-size: auto;
 	display: block;
