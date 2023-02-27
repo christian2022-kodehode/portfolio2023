@@ -609,9 +609,9 @@ span[aria-hidden="true"] {
 		border-block-end-width: 1px;
 		color: var(--foreground-contrast);
 		display: block;
-		margin-inline-start: 3em;
-		padding-block: 1em;
-		padding-inline-end: 3em;
+		margin-inline-start: 2em;
+		padding-block: 0.5em;
+		padding-inline-end: 2em;
 		padding-inline-start: 1em;
 		text-decoration: none;
 		transition-duration: 300ms;
@@ -640,7 +640,7 @@ span[aria-hidden="true"] {
 		display: flex;
 		flex-direction: column;
 		inline-size: 100%;
-		inset-block-end: 3em;
+		inset-block-end: 2em;
 		inset-block-start: 0;
 		justify-content: flex-end;
 		max-block-size: 100%;
@@ -651,7 +651,7 @@ span[aria-hidden="true"] {
 		transition-timing-function: step-end;
 	}
 		.accordion-toggle:checked ~ .accordion-content {
-			max-inline-size: 13em;
+			max-inline-size: 10em;
 			transition-delay: 0ms;
 			transition-timing-function: step-start;
 		}
@@ -697,13 +697,13 @@ span[aria-hidden="true"] {
 	background-color: var(--primary);
 	border-inline-start-color: var(--primary-brighter);
 	border-inline-start-style: solid;
-	border-inline-start-width: 3em;
+	border-inline-start-width: 2em;
 	color: var(--foreground-contrast);
 	display: block;
 	inline-size: 100%;
 	margin-inline-start: auto;
-	max-inline-size: 10em;
-	padding-block: 1em;
+	max-inline-size: 8em;
+	padding-block: 0.5em;
 	padding-inline: 1em;
 	transition-duration: 300ms;
 	transition-property: max-inline-size, background-color, border-color;
@@ -712,14 +712,14 @@ span[aria-hidden="true"] {
 	.accordion-toggle:checked ~ .accordion-trigger {
 		background-color: var(--primary-muted);
 		border-inline-start-color: var(--primary-muted-brighter);
-		max-inline-size: 13em;
+		max-inline-size: 10em;
 	}
 
 	.accordion-trigger svg {
-		block-size: 3em;
-		inline-size: 3em;
+		block-size: 2em;
+		inline-size: 2em;
 		inset-block-start: 0;
-		inset-inline-start: -3em;
+		inset-inline-start: -2em;
 		position: absolute;
 		transition-duration: 300ms;
 		transition-property: transform;
